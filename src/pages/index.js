@@ -1,75 +1,45 @@
 import React from 'react'
-import { graphql } from 'gatsby'
-import { Helmet } from 'react-helmet'
-import Hero from '../components/hero'
-import Layout from '../components/layout'
-import ArticlePreview from '../components/article-preview'
+import styled from 'styled-components'
 
-const RootIndex = ({ location, data: { site, allContentfulBlogPost, allContentfulPerson } }) => (
-  <Layout location={location}>
-    <div style={{ background: '#fff' }}>
-      <Helmet title={site.siteMetadata.title} />
-      <Hero data={allContentfulPerson.edges[0].node} />
-      <div className='wrapper'>
-        <h2 className='section-headline'>Recent articles</h2>
-        <ul className='article-list'>
-          {allContentfulBlogPost.edges.map(({ node }) => (
-            <li key={node.slug}>
-              <ArticlePreview article={node} />
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  </Layout>
+const Container = styled.div`
+  margin: 3rem auto;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`
+
+const Avatar = styled.img`
+  flex: 0 0 96px;
+  width: 96px;
+  height: 96px;
+  margin: 0;
+`
+
+const Username = styled.h2`
+  margin: 0 0 12px 0;
+  padding: 0;
+`
+
+const User = ({ avatar, username }) => (
+  <>
+    <Avatar src={avatar} alt={username} />
+    <Username>{username}</Username>
+  </>
 )
 
-export default RootIndex
-
-export const pageQuery = graphql`
-  query HomeQuery {
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
-      edges {
-        node {
-          title
-          slug
-          publishDate(formatString: "MMMM Do, YYYY")
-          tags
-          heroImage {
-            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
-          }
-          description {
-            childMarkdownRemark {
-              html
-            }
-          }
-        }
-      }
-    }
-    allContentfulPerson(
-      filter: { contentful_id: { eq: "15jwOBqpxqSAOy2eOO4S0m" } }
-    ) {
-      edges {
-        node {
-          name
-          shortBio {
-            shortBio
-          }
-          title
-          heroImage: image {
-            fluid(
-              maxWidth: 1180
-              maxHeight: 480
-              resizingBehavior: PAD
-              background: "rgb:000000"
-            ) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
-          }
-        }
-      }
-    }
-  }
-`
+export default () => (
+  <Container>
+    <h1>About Styled Components</h1>
+    <p>Styled Components is cool</p>
+    <User
+      username='Jane Doe'
+      avatar='https://s3.amazonaws.com/uifaces/faces/twitter/adellecharles/128.jpg'
+    />
+    <User
+      username='Bob Smith'
+      avatar='https://s3.amazonaws.com/uifaces/faces/twitter/vladarbatov/128.jpg'
+    />
+  </Container>
+)

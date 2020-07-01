@@ -1,0 +1,11 @@
+import React from 'react'
+
+const Index = ({ children }) => (
+  <div>
+    <h1>your nav here</h1>
+    {children}
+    <h1>your footer here</h1>
+  </div>
+)
+
+export default Index
