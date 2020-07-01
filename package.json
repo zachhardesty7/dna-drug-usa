@@ -1,6 +1,6 @@
 {
-  "name": "contentful-starter-gatsby-blog",
-  "description": "Contentful Gatsby Starter Blog",
+  "name": "dna-drug-usa",
+  "description": "DNA Drug USA Website",
   "private": true,
   "version": "0.0.1",
   "author": "Zach Hardesty <hello@zachhardesty.com>",
@@ -9,14 +9,15 @@
   },
   "scripts": {
     "dev": "gatsby develop",
-    "build": "gatsby build",
+    "build:traditional": "gatsby build",
+    "build": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "serve": "gatsby serve",
     "setup": "node ./bin/setup.js",
     "netlify-login": "netlify login",
     "deploy": "netlify deploy -d public -p"
   },
   "bugs": {
-    "url": "https://github.com/contentful/starter-gatsby-blog/issues"
+    "url": "https://github.com/zachhardesty/dna-drug-usa/issues"
   },
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.7",
@@ -41,16 +42,15 @@
     "eslint-config-hardesty": "^3.0.0",
     "netlify-cli": "^2.54.0"
   },
-  "homepage": "https://github.com/contentful/starter-gatsby-blog#readme",
+  "homepage": "https://github.com/zachhardesty/dna-drug-usa#readme",
   "keywords": [
     "gatsby",
-    "contentful",
-    "starter"
+    "contentful"
   ],
   "license": "MIT",
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/contentful/starter-gatsby-blog.git"
+    "url": "git+https://github.com/zachhardesty/dna-drug-usa.git"
   }
 }

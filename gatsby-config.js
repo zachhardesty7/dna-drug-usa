@@ -14,9 +14,7 @@ if (process.env.CONTENTFUL_HOST) {
   contentfulConfig.host = process.env.CONTENTFUL_HOST
 }
 
-const { spaceId, accessToken } = contentfulConfig
-
-if (!spaceId || !accessToken) {
+if (!contentfulConfig.spaceId || !contentfulConfig.accessToken) {
   throw new Error(
     'Contentful spaceId and the access token need to be provided.',
   )
@@ -40,8 +38,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'GatsbyJS',
-        short_name: 'GatsbyJS',
+        name: 'DNA Drug USA',
+        short_name: 'DNA Drug USA',
         icon: 'src/images/icon.png',
         start_url: '/',
         background_color: '#f7f0eb',
