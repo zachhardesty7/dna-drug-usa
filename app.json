@@ -1,20 +1,7 @@
 {
-  "name": "Contentful Gatsby Starter",
-  "description": "Gatsby starter for a Contentful project.",
-  "keywords": [
-    "contentful",
-    "gatsby",
-    "static",
-    "ssg"
-  ],
+  "name": "DNA Drug USA",
+  "description": "Gatsby web app for client",
+  "keywords": ["contentful", "gatsby", "netlify", "webapp"],
   "repository": "https://github.com/contentful-userland/gatsby-contentful-starter",
-  "success_url": "/",
-  "buildpacks": [
-    {
-      "url": "heroku/nodejs"
-    },
-    {
-      "url": "https://github.com/heroku/heroku-buildpack-static"
-    }
-  ]
+  "success_url": "/"
 }

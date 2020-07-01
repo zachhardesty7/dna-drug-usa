@@ -2,7 +2,7 @@
 
 Create a [Gatsby](http://gatsbyjs.com/) blog powered by [Contentful](https://www.contentful.com). This is a simplified version of the [Gatsby Contentful Starter](https://github.com/contentful-userland/gatsby-contentful-starter) which is maintained by our Community.
 
-![The index page of the starter blog](https://rawgit.com/contentful-userland/gatsby-contentful-starter/master/screenshot.jpg "The index page of the starter blog")
+![The index page of the starter blog](https://rawgit.com/contentful-userland/gatsby-contentful-starter/master/screenshot.jpg)
 
 Static sites are scalable, secure and have very little required maintenance. They come with a drawback though. Not everybody feels good editing files, building a project and uploading it somewhere. This is where Contentful comes into play.
 
@@ -18,17 +18,17 @@ With Contentful and Gatsby you can connect your favorite static site generator w
 
 See our [official Contentful getting started guide](https://www.contentful.com/developers/docs/tutorials/general/get-started/).
 
-### Get the source code and install dependencies.
+### Get the source code and install dependencies
 
-```
-$ git clone https://github.com/contentful/starter-gatsby-blog.git
-$ npm install
+```sh
+git clone https://github.com/contentful/starter-gatsby-blog.git
+npm install
 ```
 
 Or use the [Gatsby CLI](https://www.npmjs.com/package/gatsby-cli).
 
-```
-$ gatsby new contentful-starter-blog https://github.com/contentful/starter-gatsby-blog/
+```sh
+gatsby new contentful-starter-blog https://github.com/contentful/starter-gatsby-blog/
 ```
 
 ### Set up of the needed content model and create a configuration file

@@ -3,13 +3,13 @@ import { Link } from 'gatsby'
 import styles from './navigation.module.css'
 
 export default () => (
-  <nav role="navigation">
+  <nav role='navigation'>
     <ul className={styles.navigation}>
       <li className={styles.navigationItem}>
-        <Link to="/">Home</Link>
+        <Link to='/'>Home</Link>
       </li>
       <li className={styles.navigationItem}>
-        <Link to="/blog/">Blog</Link>
+        <Link to='/blog/'>Blog</Link>
       </li>
     </ul>
   </nav>
