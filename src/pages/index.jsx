@@ -29,7 +29,7 @@ const User = ({ avatar, username }) => (
   </>
 )
 
-export default () => (
+const LandingPage = () => (
   <Container>
     <h1>About Styled Components</h1>
     <p>Styled Components is cool</p>
@@ -43,3 +43,5 @@ export default () => (
     />
   </Container>
 )
+
+export default LandingPage
