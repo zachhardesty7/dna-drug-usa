@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react"
+import styled from "styled-components"
 
 const Container = styled.div`
   margin: 3rem auto;
@@ -34,12 +34,12 @@ const LandingPage = () => (
     <h1>About Styled Components</h1>
     <p>Styled Components is cool</p>
     <User
-      username='Jane Doe'
-      avatar='https://s3.amazonaws.com/uifaces/faces/twitter/adellecharles/128.jpg'
+      username="Jane Doe"
+      avatar="https://s3.amazonaws.com/uifaces/faces/twitter/adellecharles/128.jpg"
     />
     <User
-      username='Bob Smith'
-      avatar='https://s3.amazonaws.com/uifaces/faces/twitter/vladarbatov/128.jpg'
+      username="Bob Smith"
+      avatar="https://s3.amazonaws.com/uifaces/faces/twitter/vladarbatov/128.jpg"
     />
   </Container>
 )

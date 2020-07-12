@@ -1,8 +1,17 @@
 export const brandColors = {
-  blue: '#3b5998',
-  orange: '#ca6914',
-  teal: '#749ad3',
-  white: '#ffffff',
+  blue: "#3b5998",
+  orange: "#ca6914",
+  teal: "#749ad3",
+  white: "#ffffff",
+}
+
+export const navLinksMap = {
+  Home: "home",
+  "Services & Pricing": "services",
+  "Schedule a Consultation": "consultation",
+  "How it Works": "process",
+  Reviews: "reviews",
+  "Contact Us": "contact",
 }
 
 export const defaultColors = {

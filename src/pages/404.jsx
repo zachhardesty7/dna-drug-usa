@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react"
 
-import { Section404 } from 'semantic-styled-ui'
+import { Section404 } from "semantic-styled-ui"
 
 const Page = () => <Section404 />
 
