@@ -8,7 +8,7 @@ import { Footer, Icon, IconGroup, Navigation } from "semantic-styled-ui"
 import "semantic-ui-css/semantic.min.css"
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components"
 import GatsbyImage from "gatsby-image"
-import { defaultColors } from "../constants"
+import { defaultColors, navLinksMap } from "../constants"
 
 const GlobalStyle = createGlobalStyle``
 
@@ -79,11 +79,10 @@ const LayoutTemplate = ({ children }) => {
             </Navigation.Left>
             <Navigation.Right>
               {contentfulNavigationBar.items.map((page) => (
-                // last item is a new page link
                 <Navigation.Item
-                  key={page}
+                  key={navLinksMap[page]}
                   as={Link}
-                  link={`/${page.toLowerCase()}`}
+                  link={`/${navLinksMap[page]}`}
                   activeClassName="active"
                 >
                   {page}
@@ -98,16 +97,11 @@ const LayoutTemplate = ({ children }) => {
               <IconGroup light justify="flex-end">
                 <Icon
                   name="facebook"
-                  link="https://www.facebook.com/theconnectdoor/"
-                />
-                <Icon name="twitter" link="https://twitter.com/ConnectDoor/" />
-                <Icon
-                  name="instagram"
-                  link="https://instagram.com/ConnectDoor/"
+                  link="https://www.facebook.com/DNA-Drug-USA-111447063958381/"
                 />
                 <Icon
                   name="linkedin"
-                  link="https://www.linkedin.com/company/connect-door/"
+                  link="https://www.linkedin.com/in/horacio-v-5355231b1/"
                 />
               </IconGroup>
             }
