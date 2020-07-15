@@ -1,7 +1,7 @@
-import React from "react";
+import React from "react"
 // import styled from "styled-components"
 
-import { Blurbs, Hero, Icon } from "semantic-styled-ui";
+import { Blurbs, Hero, Icon } from "semantic-styled-ui"
 
 const LandingPage = () => (
   <>
@@ -80,6 +80,6 @@ const LandingPage = () => (
       />
     </Blurbs>
   </>
-);
+)
 
-export default LandingPage;
+export default LandingPage

@@ -3,7 +3,14 @@ import { Helmet } from "react-helmet"
 
 import { Link, graphql, navigate, useStaticQuery } from "gatsby"
 
-import { Footer, Icon, IconGroup, Navigation } from "semantic-styled-ui"
+import {
+  Flexbox,
+  Footer,
+  Icon,
+  Navigation,
+  getColor,
+  getHoverColor,
+} from "semantic-styled-ui"
 
 import "semantic-ui-css/semantic.min.css"
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components"
@@ -17,6 +24,14 @@ const S = {}
 
 S.NavLogo = styled.img`
   max-width: 12em;
+`
+
+S.Link = styled.a`
+  margin-left: 1em;
+  margin-right: 1em;
+  text-decoration: underline;
+  ${getColor("light")};
+  ${getHoverColor("white")};
 `
 
 const LayoutTemplate = ({ children }) => {
@@ -91,10 +106,16 @@ const LayoutTemplate = ({ children }) => {
             </Navigation.Right>
           </Navigation>
           {children}
-          <Footer
-            inverted
-            icons={
-              <IconGroup light justify="flex-end">
+          <Footer inverted>
+            <Footer.Content
+              copyright="DNA"
+              date={new Date("July 2020")}
+              developerName="Zach Hardesty"
+              developerLink="https://zachhardesty.com"
+            />
+            <Flexbox justify="end">
+              <S.Link href="contact">Contact Us!</S.Link>
+              <Icon.Group light justify="end">
                 <Icon
                   name="facebook"
                   link="https://www.facebook.com/DNA-Drug-USA-111447063958381/"
@@ -103,12 +124,9 @@ const LayoutTemplate = ({ children }) => {
                   name="linkedin"
                   link="https://www.linkedin.com/in/horacio-v-5355231b1/"
                 />
-              </IconGroup>
-            }
-            copyright="ConnectDoor"
-            developerName="Zach Hardesty"
-            developerLink="https://zachhardesty.com"
-          />
+              </Icon.Group>
+            </Flexbox>
+          </Footer>
         </div>
       </div>
     </ThemeProvider>

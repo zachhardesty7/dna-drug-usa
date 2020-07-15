@@ -39,7 +39,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
-    "semantic-styled-ui": "^0.21.0",
+    "semantic-styled-ui": "^0.25.0",
     "semantic-ui-css": "^2.4.1",
     "styled-components": "^5.1.1"
   },
