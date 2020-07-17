@@ -13,8 +13,6 @@ import {
   padding,
 } from "semantic-styled-ui"
 
-import faker from "faker"
-
 const S = {} // styled-components namespace
 
 S.Message = styled(Message)`
@@ -41,15 +39,11 @@ S.Checkboxes = styled("div")`
 const ConsultationPage = ({ data }) => {
   const [success, setSuccess] = React.useState(false)
   const [error, setError] = React.useState(false)
-  const [textAreaVal, setTextArea] = React.useState("")
-  const [fieldsObj, setFieldsObj] = React.useState({})
-
-  const addressDefinitions = faker.definitions.address
-  const stateOptions = addressDefinitions.state.map((state, index) => ({
-    key: addressDefinitions.state_abbr[index],
-    text: state,
-    value: addressDefinitions.state_abbr[index],
-  }))
+  const [textArea, setTextArea] = React.useState("")
+  const [textInputs, setTextInputs] = React.useState({})
+  const [selectedServices, setSelectedServices] = React.useState({})
+  const [preferredDate, setPreferredDate] = React.useState("")
+  const [preferredTime, setPreferredTime] = React.useState("")
 
   const removeSuccessMessage = (ms = 6000) => {
     setTimeout(() => {
@@ -58,7 +52,7 @@ const ConsultationPage = ({ data }) => {
   }
 
   const handleSubmit = (evt) => {
-    if (Object.values(fieldsObj).some((val) => val === "")) {
+    if (Object.values(textInputs).some((val) => val === "")) {
       setSuccess(false)
       setError(true)
     } else {
@@ -67,19 +61,19 @@ const ConsultationPage = ({ data }) => {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({
           "form-name": "contact",
-          "text-area": textAreaVal,
-          ...fieldsObj,
+          "text-area": textArea,
+          ...textInputs,
         }),
       }).catch((error_) => console.error(error_))
 
       // reset state of fields
       const newFieldsObj = Object.fromEntries(
-        Object.keys(fieldsObj).map((key) => [key, ""])
+        Object.keys(textInputs).map((key) => [key, ""])
       )
 
       setSuccess(true)
       setError(false)
-      setFieldsObj(newFieldsObj)
+      setTextInputs(newFieldsObj)
 
       removeSuccessMessage()
     }
@@ -87,8 +81,8 @@ const ConsultationPage = ({ data }) => {
     evt.preventDefault()
   }
 
-  const handleChange = (_, { id, value }) => {
-    setFieldsObj({ ...fieldsObj, [id]: value })
+  const handleChange = (_, { name, value }) => {
+    setTextInputs({ ...textInputs, [name]: value })
   }
 
   const handleChangeArea = (_, { value }) => {
@@ -154,7 +148,7 @@ const ConsultationPage = ({ data }) => {
                 placeholder="Full Name"
                 label="Full Name"
                 onChange={handleChange}
-                value={fieldsObj.name}
+                value={textInputs.name}
               />
               <Form.Group widths="equal">
                 <Form.Input
@@ -165,7 +159,7 @@ const ConsultationPage = ({ data }) => {
                   placeholder="Email"
                   label="Email"
                   onChange={handleChange}
-                  value={fieldsObj.email}
+                  value={textInputs.email}
                 />
                 <Form.Input
                   name="phone"
@@ -175,7 +169,7 @@ const ConsultationPage = ({ data }) => {
                   placeholder="Phone Number"
                   label="Phone Number"
                   onChange={handleChange}
-                  value={fieldsObj.phone}
+                  value={textInputs.phone}
                 />
               </Form.Group>
               <Form.Input
@@ -185,7 +179,7 @@ const ConsultationPage = ({ data }) => {
                 placeholder="Street"
                 label="Street"
                 onChange={handleChange}
-                value={fieldsObj.street}
+                value={textInputs.street}
               />
               <Form.Group>
                 <Form.Input
@@ -196,7 +190,7 @@ const ConsultationPage = ({ data }) => {
                   placeholder="City"
                   label="City"
                   onChange={handleChange}
-                  value={fieldsObj.city}
+                  value={textInputs.city}
                 />
 
                 <Form.Input
@@ -207,7 +201,7 @@ const ConsultationPage = ({ data }) => {
                   placeholder="State"
                   label="State"
                   onChange={handleChange}
-                  value={fieldsObj.state}
+                  value={textInputs.state}
                 />
                 <Form.Input
                   name="zip"
@@ -217,7 +211,7 @@ const ConsultationPage = ({ data }) => {
                   placeholder="Zip Code"
                   label="Zip Code"
                   onChange={handleChange}
-                  value={fieldsObj.zip}
+                  value={textInputs.zip}
                 />
               </Form.Group>
               {/* MARK: services */}
@@ -229,7 +223,18 @@ const ConsultationPage = ({ data }) => {
                   length={services.join("").length}
                 >
                   {services.map((service) => (
-                    <Checkbox label={service} />
+                    <Checkbox
+                      label={service}
+                      key={service}
+                      // id={service}
+                      value={selectedServices[service]}
+                      onChange={(_, { label, checked }) =>
+                        setSelectedServices({
+                          ...selectedServices,
+                          [label]: checked,
+                        })
+                      }
+                    />
                   ))}
                 </S.Checkboxes>
               </Form.Field>
@@ -240,8 +245,8 @@ const ConsultationPage = ({ data }) => {
                   error={error}
                   fluid
                   label="Preferred Date"
-                  onChange={handleChange}
-                  value={fieldsObj.date}
+                  onChange={(_, { value }) => setPreferredDate(value)}
+                  value={preferredDate}
                 />
                 <Form.Input
                   name="time"
@@ -249,18 +254,18 @@ const ConsultationPage = ({ data }) => {
                   error={error}
                   fluid
                   label="Preferred Time"
-                  onChange={handleChange}
-                  value={fieldsObj.Time}
+                  onChange={(_, { value }) => setPreferredTime(value)}
+                  value={preferredTime}
                 />
               </Form.Group>
               <Form.TextArea
                 name="comments"
-                error={error && textAreaVal === ""}
-                placeholder="Comments"
-                label="Enter any other comments below:"
+                error={error && textArea === ""}
+                placeholder="Have anything else to let us know?"
+                label="Comments"
                 style={{ minHeight: 125 }}
                 onChange={handleChangeArea}
-                value={textAreaVal}
+                value={textArea}
               />
 
               <Transition.Group animation="fade down" duration={500}>
