@@ -8,10 +8,24 @@ import {
   Icon,
   Message,
   Segment,
+  Step,
   Transition,
   encode,
+  media,
   padding,
 } from "semantic-styled-ui"
+
+import {
+  services1,
+  services2,
+  services3,
+  services4,
+  services5,
+  services6,
+  services7,
+  services8,
+  services9,
+} from "../services"
 
 const S = {} // styled-components namespace
 
@@ -25,15 +39,29 @@ S.Message = styled(Message)`
 S.Checkboxes = styled("div")`
   & > * {
     ${padding("vertical")("0.3em")};
-    /* padding-right: 0.75em; */
     max-width: 25%;
   }
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  /* align-content: flex-start; */
-  max-height: ${({ maxHeight }) => maxHeight}em;
   min-height: 6em;
+  max-height: ${({ maxHeight }) => maxHeight}em;
+  @media ${media.desktop} {
+    max-height: ${({ maxHeight }) => maxHeight * 1.157577572}em;
+  }
+  @media ${media.laptop} {
+    max-height: ${({ maxHeight }) => maxHeight * 1.334224743}em;
+  }
+  /* @media ${media.tablet} {
+    max-height: ${({ maxHeight }) => maxHeight * 1.1}em;
+  } */
+  /* @media ${media.phone} {
+    max-height: ${({ maxHeight }) => maxHeight * 1.1}em;
+  } */
+`
+
+S.Step = styled(Step)`
+  flex-wrap: nowrap;
 `
 
 const ConsultationPage = ({ data }) => {
@@ -90,6 +118,8 @@ const ConsultationPage = ({ data }) => {
     console.log("AL: value", value)
   }
 
+  // const services = services1
+
   const services = [
     "Paternity Test",
     "Maternity Test",
@@ -97,7 +127,7 @@ const ConsultationPage = ({ data }) => {
     "Non-Invasive Prenatal Paternity Test",
     "Grandparentage Test – Full",
     "Grandparentage Test – Single",
-    "Siblingship Test - Full and Half Siblings and a lot more text to test max length",
+    "Siblingship Test - Full and Half Siblings",
     "Genetic Reconstruction Test",
     "Y-STR Test",
     "Avuncular Test",
@@ -114,6 +144,13 @@ const ConsultationPage = ({ data }) => {
     "Next Day Results",
   ]
 
+  const steps = [
+    "Please fill out your personal contact information or reach out to us directly",
+    "Once your information is received, we'll reach to you to set your appointment at a time and location that is best for you.",
+    "Samples are collected by one of our medical professionals and sent to the laboratory.",
+    "Your results will be sent to you via email within a few days, with a hard-copy via mail if requested.",
+  ]
+
   const chars = services.join("").length
   // y = m1*x1*x1 + m2*x2 + b
   // @see https://docs.google.com/spreadsheets/d/1P6H7pW5YQwHS4hSEVchzi30q04j8QrVYuWkJ9YV6NZw/edit?usp=sharing
@@ -122,7 +159,9 @@ const ConsultationPage = ({ data }) => {
     services.length * 0.1451091322 +
     2.86778981742734
 
-  const fields = []
+  // console.log("chars", chars)
+  // console.log("services.length", services.length)
+  // console.log("maxHeight", maxHeight)
 
   return (
     <Segment vertical basic>
@@ -292,7 +331,18 @@ const ConsultationPage = ({ data }) => {
               <Form.Button type="submit">Submit</Form.Button>
             </Form>
           </Grid.Column>
-          <Grid.Column width={4} />
+          <Grid.Column width={4}>
+            <Step.Group vertical ordered>
+              {steps.map((step) => (
+                <S.Step>
+                  <Step.Content>
+                    {/* <Step.Title>Shipping</Step.Title> */}
+                    <Step.Description>{step}</Step.Description>
+                  </Step.Content>
+                </S.Step>
+              ))}
+            </Step.Group>
+          </Grid.Column>
         </Grid>
       </Container>
     </Segment>
