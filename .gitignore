@@ -69,3 +69,5 @@ public
 .netlify
 
 .DS_Store
+
+services.js

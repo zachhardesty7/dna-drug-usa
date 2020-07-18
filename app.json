@@ -1,6 +1,6 @@
 {
   "name": "DNA Drug USA",
-  "description": "Gatsby web app for client",
+  "description": "Web application for services relating to DNA testing",
   "keywords": ["contentful", "gatsby", "netlify", "webapp"],
   "repository": "https://github.com/contentful-userland/gatsby-contentful-starter",
   "success_url": "/"

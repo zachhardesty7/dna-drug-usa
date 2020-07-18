@@ -15,17 +15,17 @@ import {
   padding,
 } from "semantic-styled-ui"
 
-import {
-  services1,
-  services2,
-  services3,
-  services4,
-  services5,
-  services6,
-  services7,
-  services8,
-  services9,
-} from "../services"
+// import {
+//   services1,
+//   services2,
+//   services3,
+//   services4,
+//   services5,
+//   services6,
+//   services7,
+//   services8,
+//   services9,
+// } from "../services"
 
 const S = {} // styled-components namespace
 
