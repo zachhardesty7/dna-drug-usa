@@ -12,7 +12,7 @@ import {
   getHoverColor,
 } from "semantic-styled-ui"
 
-import "semantic-ui-css/semantic.min.css"
+import "fomantic-ui-css/semantic.css"
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components"
 import GatsbyImage from "gatsby-image"
 import { defaultColors, navLinksMap } from "../constants"
@@ -53,10 +53,6 @@ const LayoutTemplate = ({ children }) => {
       }
     }
   `)
-  console.log(
-    "LayoutTemplate -> contentfulNavigationBar",
-    contentfulNavigationBar
-  )
 
   return (
     <ThemeProvider theme={{ ...defaultColors }}>
