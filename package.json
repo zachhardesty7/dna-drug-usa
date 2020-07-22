@@ -2,7 +2,7 @@
   "name": "dna-drug-usa",
   "description": "DNA Drug USA Website",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Zach Hardesty <hello@zachhardesty.com>",
   "eslintConfig": {
     "extends": "hardesty/prettier"
@@ -38,6 +38,7 @@
     "gatsby-source-contentful": "^2.3.26",
     "gatsby-transformer-sharp": "^2.5.11",
     "react": "^16.13.1",
+    "react-avatar": "^3.9.7",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
     "semantic-styled-ui": "^0.25.0",
