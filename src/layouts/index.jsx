@@ -105,7 +105,7 @@ const LayoutTemplate = ({ children }) => {
           <Footer inverted>
             <Footer.Content
               copyright="DNA"
-              date={new Date("July 2020")}
+              date="July 2020"
               developerName="Zach Hardesty"
               developerLink="https://zachhardesty.com"
             />

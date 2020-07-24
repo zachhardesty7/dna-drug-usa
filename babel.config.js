@@ -8,5 +8,6 @@ module.exports = {
         cssNamespace: ".root.root.root",
       },
     ],
+    "babel-plugin-styled-components",
   ],
 }

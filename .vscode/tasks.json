@@ -2,9 +2,9 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "type": "shell",
-      "command": "cd ${cwd}; yarn dev",
       "label": "yarn dev",
+      "type": "shell",
+      "command": "yarn dev",
       "detail": "link to dev library, run watcher & gatsby",
       "presentation": {
         "echo": false,
