@@ -15,6 +15,8 @@ import {
   padding,
 } from "semantic-styled-ui"
 
+import { Masonry } from "masonic"
+
 // import {
 //   services1,
 //   services2,
@@ -255,28 +257,31 @@ const ConsultationPage = ({ data }) => {
               </Form.Group>
               {/* MARK: services */}
               <Form.Field>
-                <label>Services you're interested in:</label>
-                <S.Checkboxes
-                  maxHeight={maxHeight}
-                  items={services.length}
-                  length={services.join("").length}
-                >
-                  {services.map((service) => (
-                    <Checkbox
-                      label={service}
-                      key={service}
-                      // id={service}
-                      value={selectedServices[service]}
-                      onChange={(_, { label, checked }) =>
-                        setSelectedServices({
-                          ...selectedServices,
-                          [label]: checked,
-                        })
-                      }
-                    />
-                  ))}
-                </S.Checkboxes>
+                {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+                <label htmlFor="services">Services you're interested in:</label>
               </Form.Field>
+              <Masonry
+                id="services"
+                // columnCount={4}
+                columnWidth={175} // TESTING:
+                columnGutter={12}
+                items={services.map((service) => ({ service }))}
+                render={({ data: { service } }) => (
+                  <Form.Checkbox
+                    label={service}
+                    key={service}
+                    id={service}
+                    checked={selectedServices[service]}
+                    onChange={(_, { checked }) =>
+                      setSelectedServices({
+                        ...selectedServices,
+                        [service]: checked,
+                      })
+                    }
+                  />
+                )}
+              />
+
               <Form.Group widths="equal">
                 <Form.Input
                   name="date"
@@ -334,7 +339,7 @@ const ConsultationPage = ({ data }) => {
           <Grid.Column width={4}>
             <Step.Group vertical ordered>
               {steps.map((step) => (
-                <S.Step>
+                <S.Step key={step}>
                   <Step.Content>
                     {/* <Step.Title>Shipping</Step.Title> */}
                     <Step.Description>{step}</Step.Description>
