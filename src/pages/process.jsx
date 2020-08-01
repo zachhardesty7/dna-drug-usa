@@ -4,23 +4,16 @@ import { Blurbs, Container, Icon, Segment, Title } from "semantic-styled-ui"
 
 const ProcessPage = ({ data: { page } }) => {
   return (
-    <Segment vertical basic>
-      <Container>
-        <Title>{page.title}</Title>
-        <Blurbs>
-          {page.steps.map((item) => (
-            <Blurbs.Item
-              header={item.title}
-              icon={
-                item.icon && <Icon name={item.icon} inverted size="bigger" />
-              }
-            >
-              {item.content.content}
-            </Blurbs.Item>
-          ))}
-        </Blurbs>
-      </Container>
-    </Segment>
+    <Blurbs padded="bottom" title={page.title}>
+      {page.steps.map((item) => (
+        <Blurbs.Item
+          header={item.title}
+          icon={item.icon && <Icon name={item.icon} inverted size="bigger" />}
+        >
+          {item.content.content}
+        </Blurbs.Item>
+      ))}
+    </Blurbs>
   )
 }
 

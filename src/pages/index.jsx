@@ -1,11 +1,24 @@
 import { graphql } from "gatsby"
+import GatsbyImage from "gatsby-image"
 import React from "react"
 
 import { Blurbs, Hero, Icon } from "semantic-styled-ui"
 
 const LandingPage = ({ data: { page } }) => (
   <>
-    <Hero overlay="darker" baseline="bottom" size="relaxed" textAlign="right">
+    <Hero
+      overlay="darker"
+      baseline="bottom"
+      size="relaxed"
+      textAlign="right"
+      images={[
+        <GatsbyImage
+          fluid={page.hero.background.fluid}
+          alt={page.hero.background.title}
+          key={page.hero.background.title}
+        />,
+      ]}
+    >
       <Hero.Title>{page.hero.title}</Hero.Title>
       <Hero.Subtitle>{page.hero.subtitle.subtitle}</Hero.Subtitle>
       <Hero.Button>{page.hero.button}</Hero.Button>
