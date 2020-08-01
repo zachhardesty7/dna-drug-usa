@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import {
-  Checkbox,
   Container,
   Form,
   Grid,
@@ -9,25 +8,13 @@ import {
   Message,
   Segment,
   Step,
+  Title,
   Transition,
   encode,
-  media,
-  padding,
 } from "semantic-styled-ui"
 
 import { Masonry } from "masonic"
-
-// import {
-//   services1,
-//   services2,
-//   services3,
-//   services4,
-//   services5,
-//   services6,
-//   services7,
-//   services8,
-//   services9,
-// } from "../services"
+import { graphql } from "gatsby"
 
 const S = {} // styled-components namespace
 
@@ -37,36 +24,11 @@ S.Message = styled(Message)`
   margin-bottom: 1em;
 `
 
-// S.Checkboxes = styled(Form.Field)`
-S.Checkboxes = styled("div")`
-  & > * {
-    ${padding("vertical")("0.3em")};
-    max-width: 25%;
-  }
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  min-height: 6em;
-  max-height: ${({ maxHeight }) => maxHeight}em;
-  @media ${media.desktop} {
-    max-height: ${({ maxHeight }) => maxHeight * 1.157577572}em;
-  }
-  @media ${media.laptop} {
-    max-height: ${({ maxHeight }) => maxHeight * 1.334224743}em;
-  }
-  /* @media ${media.tablet} {
-    max-height: ${({ maxHeight }) => maxHeight * 1.1}em;
-  } */
-  /* @media ${media.phone} {
-    max-height: ${({ maxHeight }) => maxHeight * 1.1}em;
-  } */
-`
-
 S.Step = styled(Step)`
   flex-wrap: nowrap;
 `
 
-const ConsultationPage = ({ data }) => {
+const ConsultationPage = ({ data: { page } }) => {
   const [success, setSuccess] = React.useState(false)
   const [error, setError] = React.useState(false)
   const [textArea, setTextArea] = React.useState("")
@@ -120,54 +82,10 @@ const ConsultationPage = ({ data }) => {
     console.log("AL: value", value)
   }
 
-  // const services = services1
-
-  const services = [
-    "Paternity Test",
-    "Maternity Test",
-    "Motherless Paternity Testing",
-    "Non-Invasive Prenatal Paternity Test",
-    "Grandparentage Test – Full",
-    "Grandparentage Test – Single",
-    "Siblingship Test - Full and Half Siblings",
-    "Genetic Reconstruction Test",
-    "Y-STR Test",
-    "Avuncular Test",
-    "Twin Zygosity Test",
-    "DNA Banking",
-    "DNA Profiling",
-    "Infidelity Test",
-    "mtDNA Test",
-    "Skin DNA Lifestyle",
-    "Healthy Weight",
-    "Food & Pet Sensitivity",
-    "GPS Origins",
-    "Semen Detection",
-    "Next Day Results",
-  ]
-
-  const steps = [
-    "Please fill out your personal contact information or reach out to us directly",
-    "Once your information is received, we'll reach to you to set your appointment at a time and location that is best for you.",
-    "Samples are collected by one of our medical professionals and sent to the laboratory.",
-    "Your results will be sent to you via email within a few days, with a hard-copy via mail if requested.",
-  ]
-
-  const chars = services.join("").length
-  // y = m1*x1*x1 + m2*x2 + b
-  // @see https://docs.google.com/spreadsheets/d/1P6H7pW5YQwHS4hSEVchzi30q04j8QrVYuWkJ9YV6NZw/edit?usp=sharing
-  const maxHeight =
-    chars * 0.0132528382632489 +
-    services.length * 0.1451091322 +
-    2.86778981742734
-
-  // console.log("chars", chars)
-  // console.log("services.length", services.length)
-  // console.log("maxHeight", maxHeight)
-
   return (
     <Segment vertical basic>
       <Container>
+        <Title>{page.title}</Title>
         <Grid>
           <Grid.Column width={12}>
             <Form
@@ -262,10 +180,10 @@ const ConsultationPage = ({ data }) => {
               </Form.Field>
               <Masonry
                 id="services"
-                // columnCount={4}
-                columnWidth={175} // TESTING:
+                columnWidth={175} // TESTING: vs columnCount={4}
                 columnGutter={12}
-                items={services.map((service) => ({ service }))}
+                tabIndex={null} // hide focus border
+                items={page.services.map((service) => ({ service }))}
                 render={({ data: { service } }) => (
                   <Form.Checkbox
                     label={service}
@@ -332,17 +250,16 @@ const ConsultationPage = ({ data }) => {
                   </S.Message>
                 )}
               </Transition.Group>
-
               <Form.Button type="submit">Submit</Form.Button>
             </Form>
           </Grid.Column>
+          {/* #region - steps */}
           <Grid.Column width={4}>
             <Step.Group vertical ordered>
-              {steps.map((step) => (
-                <S.Step key={step}>
+              {page.steps.map((step) => (
+                <S.Step key={step.content.content}>
                   <Step.Content>
-                    {/* <Step.Title>Shipping</Step.Title> */}
-                    <Step.Description>{step}</Step.Description>
+                    <Step.Description>{step.content.content}</Step.Description>
                   </Step.Content>
                 </S.Step>
               ))}
@@ -353,5 +270,21 @@ const ConsultationPage = ({ data }) => {
     </Segment>
   )
 }
+
+export const query = graphql`
+  query {
+    page: contentfulConsultationPage(
+      contentful_id: { eq: "f6C2Yd89EWH3DuGQH5hL9" }
+    ) {
+      title
+      services
+      steps {
+        content {
+          content
+        }
+      }
+    }
+  }
+`
 
 export default ConsultationPage

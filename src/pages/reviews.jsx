@@ -1,9 +1,7 @@
 import React from "react"
 import {
   Container,
-  Icon,
   Item,
-  Rating,
   SUIIcon,
   Segment,
   Title,
@@ -11,6 +9,7 @@ import {
 } from "semantic-styled-ui"
 import Avatar from "react-avatar"
 import styled from "styled-components"
+import { graphql } from "gatsby"
 
 const MAX_RATING = 5
 
@@ -22,29 +21,19 @@ S.ItemContent = styled(Item.Content)`
   ${margin("vertical")("0.5em")};
 `
 
-const data = {
-  reviews: [
-    {
-      name: "John Smith",
-      content: "What a lovely place to visit",
-      rating: 4,
-    },
-  ],
-}
-
-const ReviewsPage = () => {
+const ReviewsPage = ({ data: { page } }) => {
   return (
     <>
       <Segment vertical basic>
         <Container>
-          <Title>Reviews</Title>
+          <Title>{page.title}</Title>
           <Item.Group relaxed>
-            {data.reviews.map((review) => (
+            {page.reviews.map((review) => (
               <Item>
                 <Avatar size="10em" name={review.name} />
                 <S.ItemContent verticalAlign="middle">
                   <Item.Header as="h2">{review.name}</Item.Header>
-                  <Item.Description>{review.content}</Item.Description>
+                  <Item.Description>{review.content.content}</Item.Description>
                   <Item.Extra>
                     {new Array(MAX_RATING).fill(
                       <SUIIcon name="star" color="yellow" size="big" />,
@@ -61,5 +50,22 @@ const ReviewsPage = () => {
     </>
   )
 }
+
+export const query = graphql`
+  query {
+    page: contentfulReviewsPage(
+      contentful_id: { eq: "19ol6uzi04vASujftXIfi9" }
+    ) {
+      title
+      reviews {
+        name
+        rating
+        content {
+          content
+        }
+      }
+    }
+  }
+`
 
 export default ReviewsPage
