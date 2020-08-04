@@ -2,17 +2,13 @@ import { Link as GatsbyLink, graphql } from "gatsby"
 import React from "react"
 import {
   Accordion,
-  Blurbs,
   Button,
   Container,
   Grid,
   Header,
   Icon,
-  IconLink,
   Link,
   Message,
-  Rail,
-  Ref,
   Segment,
   Sticky,
   Title,
