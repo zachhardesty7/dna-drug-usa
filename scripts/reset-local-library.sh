@@ -1,10 +1,10 @@
-reregister() {
+unregister() {
   yarn unlink --cwd $1
 }
 
-reregister "$1/node_modules/react" &
-reregister "$1/node_modules/react-dom" &
-reregister "$1/node_modules/styled-components" &
+unregister "$1/node_modules/react" &
+unregister "$1/node_modules/react-dom" &
+unregister "$1/node_modules/styled-components" &
 
 # use local packages from component library
 # yarn unlink --verbose react &
