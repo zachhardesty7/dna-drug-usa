@@ -1,8 +1,8 @@
 import React from "react"
 import {
   Container,
+  Icon,
   Item,
-  SUIIcon,
   Segment,
   Title,
   margin,
@@ -36,7 +36,7 @@ const ReviewsPage = ({ data: { page } }) => {
                   <Item.Description>{review.content.content}</Item.Description>
                   <Item.Extra>
                     {new Array(MAX_RATING).fill(
-                      <SUIIcon name="star" color="yellow" size="big" />,
+                      <Icon name="star" color="yellow" size="big" />,
                       0,
                       review.rating
                     )}

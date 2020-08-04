@@ -25,7 +25,7 @@ tail -F "$path" | while read line; do
   if [ -n "$res" ]; then
     printf "\n${BOLD}library watcher started successfully, launching gatsby$RESET\n\n"
     cd -
-    gatsby develop
+    yarn start
     exit
   fi
 done
