@@ -27,25 +27,38 @@ const ServicesPage = ({ data: { page } }) => {
         <Grid>
           <Grid.Column width="10">
             <Accordion styled fluid>
-              {page.services.map((service, i) => (
-                <React.Fragment key={service.type}>
-                  <Accordion.Title
-                    active={expandedService === i}
-                    index={i}
-                    onClick={() =>
-                      expandedService === i
-                        ? setExpandedService(null)
-                        : setExpandedService(i)
-                    }
-                  >
-                    <Icon name="dropdown" />
-                    {service.type}
-                  </Accordion.Title>
-                  <Accordion.Content active={expandedService === i}>
-                    <p>{service.description?.description}</p>
-                  </Accordion.Content>
-                </React.Fragment>
-              ))}
+              {page.services.map((service, i) => {
+                const costs = service.costs.map((cost) => cost.cost)
+                const min = Math.min(...costs)
+                const max = Math.max(...costs)
+
+                return (
+                  <React.Fragment key={service.type}>
+                    <Accordion.Title
+                      active={expandedService === i}
+                      index={i}
+                      onClick={() =>
+                        expandedService === i
+                          ? setExpandedService(null)
+                          : setExpandedService(i)
+                      }
+                    >
+                      <Grid columns={2}>
+                        <Grid.Column>
+                          <Icon name="dropdown" />
+                          {service.type}
+                        </Grid.Column>
+                        <Grid.Column textAlign="right">
+                          ${min !== max ? `${min}-${max}` : `${max}`}
+                        </Grid.Column>
+                      </Grid>
+                    </Accordion.Title>
+                    <Accordion.Content active={expandedService === i}>
+                      <p>{service.description?.description}</p>
+                    </Accordion.Content>
+                  </React.Fragment>
+                )
+              })}
             </Accordion>
           </Grid.Column>
           <Grid.Column width="6">
@@ -59,10 +72,6 @@ const ServicesPage = ({ data: { page } }) => {
                 </Message.Content>
                 {/* NOTE: `link` and `as` could simply be applied to the `Button` */}
                 <Link link="/consultation" as={GatsbyLink}>
-                  <Button icon labelPosition="right">
-                    Schedule
-                    <Icon name="right arrow" />
-                  </Button>
                   <Button icon labelPosition="right">
                     Schedule
                     <Icon name="right arrow" />
