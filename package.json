@@ -44,7 +44,7 @@
     "react-avatar": "^3.9.7",
     "react-dom": "16.13.1",
     "react-helmet": "^6.1.0",
-    "semantic-styled-ui": "^0.29.2",
+    "semantic-styled-ui": "0.30.0",
     "styled-components": "^5.1.1"
   },
   "devDependencies": {
