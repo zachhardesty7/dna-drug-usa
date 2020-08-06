@@ -7,6 +7,7 @@ const ProcessPage = ({ data: { page } }) => {
     <Blurbs padded="bottom" title={page.title}>
       {page.steps.map((item) => (
         <Blurbs.Item
+          key={item.title}
           header={item.title}
           icon={item.icon && <Icon name={item.icon} inverted size="bigger" />}
         >

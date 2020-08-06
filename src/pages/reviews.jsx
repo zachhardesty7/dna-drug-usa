@@ -29,7 +29,7 @@ const ReviewsPage = ({ data: { page } }) => {
           <Title>{page.title}</Title>
           <Item.Group relaxed>
             {page.reviews.map((review) => (
-              <Item>
+              <Item key={review.name}>
                 <Avatar size="10em" name={review.name} />
                 <S.ItemContent verticalAlign="middle">
                   <Item.Header as="h2">{review.name}</Item.Header>

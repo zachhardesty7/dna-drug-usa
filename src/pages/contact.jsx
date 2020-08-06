@@ -39,7 +39,7 @@ const ContactPage = ({ data: { page } }) => {
                   <div>
                     <Header>{location.title}</Header>
                     {location.places.map((place) => (
-                      <li>{place}</li>
+                      <li key={place}>{place}</li>
                     ))}
                   </div>
                 )}

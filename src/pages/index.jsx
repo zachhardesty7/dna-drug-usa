@@ -25,14 +25,17 @@ const LandingPage = ({ data: { page } }) => (
     </Hero>
     <Blurbs title={page.aboutTitle}>
       {page.aboutSection.map((item) => (
-        <Blurbs.Item header={item.title}>{item.content.content}</Blurbs.Item>
+        <Blurbs.Item key={item.title} header={item.title}>
+          {item.content.content}
+        </Blurbs.Item>
       ))}
     </Blurbs>
     <Blurbs title={page.purposesTitle}>
       {page.purposesSection.map((item) => (
         <Blurbs.Item
+          key={item.title}
           header={item.title}
-          icon={item.icon && <Icon name={item.icon} inverted size="bigger" />}
+          icon={item.icon && <Icon name={item.icon} size="huge" />}
         />
       ))}
     </Blurbs>
