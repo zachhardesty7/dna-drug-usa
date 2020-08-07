@@ -1,8 +1,8 @@
-import { graphql } from "gatsby"
+import { Link as GatsbyLink, graphql } from "gatsby"
 import GatsbyImage from "gatsby-image"
 import React from "react"
-
-import { Blurbs, Hero, Icon } from "semantic-styled-ui"
+import { Blurbs, Hero, Icon, Link } from "semantic-styled-ui"
+import { defaultColors } from "../constants"
 
 const LandingPage = ({ data: { page } }) => (
   <>
@@ -10,7 +10,8 @@ const LandingPage = ({ data: { page } }) => (
       overlay="darker"
       baseline="bottom"
       size="relaxed"
-      textAlign="right"
+      justify="end"
+      boxed
       images={[
         <GatsbyImage
           fluid={page.hero.background.fluid}
@@ -19,9 +20,17 @@ const LandingPage = ({ data: { page } }) => (
         />,
       ]}
     >
-      <Hero.Title>{page.hero.title}</Hero.Title>
-      <Hero.Subtitle>{page.hero.subtitle.subtitle}</Hero.Subtitle>
-      <Hero.Button>{page.hero.button}</Hero.Button>
+      <Hero.Title secondary>{page.hero.title}</Hero.Title>
+      <Hero.Subtitle as="h3">{page.hero.subtitle.subtitle}</Hero.Subtitle>
+      <Link link="/consultation" as={GatsbyLink}>
+        <Hero.Button
+          secondary
+          color={defaultColors.primary}
+          colorHover={defaultColors.secondary}
+        >
+          {page.hero.button}
+        </Hero.Button>
+      </Link>
     </Hero>
     <Blurbs title={page.aboutTitle}>
       {page.aboutSection.map((item) => (

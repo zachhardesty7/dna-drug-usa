@@ -6,7 +6,7 @@ import { Link, graphql, navigate, useStaticQuery } from "gatsby"
 import {
   Flexbox,
   Footer,
-  Icon,
+  IconLink,
   Navigation,
   getColor,
   getHoverColor,
@@ -101,7 +101,8 @@ const LayoutTemplate = ({ children }) => {
               ))}
             </Navigation.Right>
           </Navigation>
-          {children}
+          {/* nest in div to enable block display */}
+          <div>{children}</div>
           <Footer inverted>
             <Footer.Content
               copyright="DNA"
@@ -111,16 +112,16 @@ const LayoutTemplate = ({ children }) => {
             />
             <Flexbox justify="end">
               <S.Link href="contact">Contact Us!</S.Link>
-              <Icon.Group light justify="end">
-                <Icon
+              <IconLink.Group light justify="end">
+                <IconLink
                   name="facebook"
                   link="https://www.facebook.com/DNA-Drug-USA-111447063958381/"
                 />
-                <Icon
+                <IconLink
                   name="linkedin"
                   link="https://www.linkedin.com/in/horacio-v-5355231b1/"
                 />
-              </Icon.Group>
+              </IconLink.Group>
             </Flexbox>
           </Footer>
         </div>
