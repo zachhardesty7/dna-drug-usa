@@ -4,20 +4,26 @@ import {
   Accordion,
   Button,
   Container,
+  Divider,
   Grid,
   Header,
   Icon,
+  Label,
   Link,
+  List,
   Message,
-  Segment,
+  PageSegment,
   Sticky,
   Title,
+  margin,
 } from "semantic-styled-ui"
+
+import { css } from "styled-components"
 
 const ServicesPage = ({ data: { page } }) => {
   const [expandedService, setExpandedService] = React.useState()
   return (
-    <Segment basic vertical>
+    <PageSegment>
       <Container>
         <Title>{page.title}</Title>
         <Grid>
@@ -45,12 +51,29 @@ const ServicesPage = ({ data: { page } }) => {
                           {service.type}
                         </Grid.Column>
                         <Grid.Column textAlign="right">
-                          ${min !== max ? `${min}-${max}` : `${max}`}
+                          ${min !== max ? `${min}-$${max}` : `${max}`}
                         </Grid.Column>
                       </Grid>
                     </Accordion.Title>
                     <Accordion.Content active={expandedService === i}>
                       <p>{service.description?.description}</p>
+                      <List bulleted>
+                        {service.costs?.map(({ cost, type }) => (
+                          <List.Item>
+                            {type} - <b>${cost}</b>
+                          </List.Item>
+                        ))}
+                      </List>
+                      <Divider horizontal>Samples Required</Divider>
+                      {service.samples && (
+                        <Label.Group>
+                          {service.samples?.map((sample) => (
+                            <Label horizontal key={sample}>
+                              {sample}
+                            </Label>
+                          ))}
+                        </Label.Group>
+                      )}
                     </Accordion.Content>
                   </React.Fragment>
                 )
@@ -67,7 +90,7 @@ const ServicesPage = ({ data: { page } }) => {
                   you as soon as possible.
                 </Message.Content>
                 {/* NOTE: `link` and `as` could simply be applied to the `Button` */}
-                <Link link="/consultation" as={GatsbyLink}>
+                <Link link="/schedule" as={GatsbyLink}>
                   <Button icon labelPosition="right">
                     Schedule
                     <Icon name="right arrow" />
@@ -78,7 +101,7 @@ const ServicesPage = ({ data: { page } }) => {
           </Grid.Column>
         </Grid>
       </Container>
-    </Segment>
+    </PageSegment>
   )
 }
 

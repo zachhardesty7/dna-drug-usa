@@ -6587,26 +6587,26 @@ eslint-config-airbnb@^18.2.0:
     object.assign "^4.1.0"
     object.entries "^1.1.2"
 
-eslint-config-hardesty@^3.3.1:
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-hardesty/-/eslint-config-hardesty-3.3.1.tgz#1f451be59820b406c73fcabe8da759ae09795d93"
-  integrity sha512-WtDb70ixoR6LuMCDPlbeRx9fxDrj9vK5cmR/1T6pdZ3FALMQ81b2+H4wo6UdMRYsjHvzp2ZP2wqo+tc4hKGIKw==
+eslint-config-hardesty@^3.3.2:
+  version "3.3.2"
+  resolved "https://registry.npmjs.org/eslint-config-hardesty/-/eslint-config-hardesty-3.3.2.tgz#0c67e8a230b0a589a57348f8f389cebf9f353239"
+  integrity sha512-ONeKB1W0V/pzGji6EIxW0tP0QDWJXIz/l6EbCpLwJa3CbFLxKYWPmTemkIHdWReTiA/uTbRWY/fAr6bdABWE4Q==
   dependencies:
     babel-eslint "^10.1.0"
     escape-regex-string "^1.0.6"
     eslint-config-airbnb "^18.2.0"
     eslint-config-standard "^14.1.1"
     eslint-plugin-import "^2.22.0"
-    eslint-plugin-jsdoc "^29.1.3"
+    eslint-plugin-jsdoc "^30.1.0"
     eslint-plugin-jsx-a11y "^6.3.1"
     eslint-plugin-markdown "^1.0.2"
     eslint-plugin-node "^11.1.0"
     eslint-plugin-optimize-regex "^1.2.0"
     eslint-plugin-promise "^4.2.1"
-    eslint-plugin-react "^7.20.3"
-    eslint-plugin-react-hooks "^4.0.7"
+    eslint-plugin-react "^7.20.5"
+    eslint-plugin-react-hooks "^4.0.8"
     eslint-plugin-standard "^4.0.1"
-    eslint-plugin-unicorn "^20.1.0"
+    eslint-plugin-unicorn "^21.0.0"
   optionalDependencies:
     eslint-config-prettier "^6.11.0"
 
@@ -6698,15 +6698,15 @@ eslint-plugin-import@^2.22.0:
     resolve "^1.17.0"
     tsconfig-paths "^3.9.0"
 
-eslint-plugin-jsdoc@^29.1.3:
-  version "29.2.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jsdoc/-/eslint-plugin-jsdoc-29.2.0.tgz#40b1da463847750fe5aafea7182145c4108e0ab7"
-  integrity sha512-B1a8LWPkkxyxIp4y3pnRQR18j03Wp+V9gDE7IjQG/MvWAzp5gqXM0q71gXRAZMvWUjujAsNg8B9v1csl+/zkvw==
+eslint-plugin-jsdoc@^30.1.0:
+  version "30.2.1"
+  resolved "https://registry.npmjs.org/eslint-plugin-jsdoc/-/eslint-plugin-jsdoc-30.2.1.tgz#6cac1a70ec239b4672888193d8a4e084a7e2d7bf"
+  integrity sha512-9Nx+BKMBoCTDRIbVpMV4MYfw+lvfnfsWTWYX9vwRRZrkXBpZkKtE3dsFcG6MhF7N/vW1cwpjEnoAIAtn0+a6gw==
   dependencies:
     comment-parser "^0.7.5"
     debug "^4.1.1"
-    jsdoctypeparser "^8.0.0"
-    lodash "^4.17.15"
+    jsdoctypeparser "^9.0.0"
+    lodash "^4.17.19"
     regextras "^0.7.1"
     semver "^7.3.2"
     spdx-expression-parse "^3.0.1"
@@ -6766,12 +6766,12 @@ eslint-plugin-react-hooks@^1.7.0:
   resolved "https://registry.yarnpkg.com/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-1.7.0.tgz#6210b6d5a37205f0b92858f895a4e827020a7d04"
   integrity sha512-iXTCFcOmlWvw4+TOE8CLWj6yX1GwzT0Y6cUfHHZqWnSk144VmVIRcVGtUAzrLES7C798lmvnt02C7rxaOX1HNA==
 
-eslint-plugin-react-hooks@^4.0.7:
+eslint-plugin-react-hooks@^4.0.8:
   version "4.0.8"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-4.0.8.tgz#a9b1e3d57475ccd18276882eff3d6cba00da7a56"
+  resolved "https://registry.npmjs.org/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-4.0.8.tgz#a9b1e3d57475ccd18276882eff3d6cba00da7a56"
   integrity sha512-6SSb5AiMCPd8FDJrzah+Z4F44P2CdOaK026cXFV+o/xSRzfOiV1FNFeLl2z6xm3yqWOQEZ5OfVgiec90qV2xrQ==
 
-eslint-plugin-react@^7.20.2, eslint-plugin-react@^7.20.3:
+eslint-plugin-react@^7.20.2, eslint-plugin-react@^7.20.5:
   version "7.20.5"
   resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.20.5.tgz#29480f3071f64a04b2c3d99d9b460ce0f76fb857"
   integrity sha512-ajbJfHuFnpVNJjhyrfq+pH1C0gLc2y94OiCbAXT5O0J0YCKaFEHDV8+3+mDOr+w8WguRX+vSs1bM2BDG0VLvCw==
@@ -6793,16 +6793,16 @@ eslint-plugin-standard@^4.0.1:
   resolved "https://registry.yarnpkg.com/eslint-plugin-standard/-/eslint-plugin-standard-4.0.1.tgz#ff0519f7ffaff114f76d1bd7c3996eef0f6e20b4"
   integrity sha512-v/KBnfyaOMPmZc/dmc6ozOdWqekGp7bBGq4jLAecEfPGmfKiWS4sA8sC0LqiV9w5qmXAtXVn4M3p1jSyhY85SQ==
 
-eslint-plugin-unicorn@^20.1.0:
-  version "20.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-unicorn/-/eslint-plugin-unicorn-20.1.0.tgz#a43f60ffc98406d72ec2a5fcc6dad24ba0192bc9"
-  integrity sha512-XQxLBJT/gnwyRR6cfYsIK1AdekQchAt5tmcsnldevGjgR2xoZsRUa5/i6e0seNHy2RoT57CkTnbVHwHF8No8LA==
+eslint-plugin-unicorn@^21.0.0:
+  version "21.0.0"
+  resolved "https://registry.npmjs.org/eslint-plugin-unicorn/-/eslint-plugin-unicorn-21.0.0.tgz#7e3a8b0f725f003619e1f40d769939ecd8d708d0"
+  integrity sha512-S8v7+v4gZTQPj4pKKvexhgSUaLQSyItvxW2SVZDaX9Iu5IjlAmF2eni+L6w8a2aqshxgU8Lle4FIAVDtuejSKQ==
   dependencies:
     ci-info "^2.0.0"
     clean-regexp "^1.0.0"
     eslint-ast-utils "^1.1.0"
     eslint-template-visitor "^2.0.0"
-    eslint-utils "^2.0.0"
+    eslint-utils "^2.1.0"
     import-modules "^2.0.0"
     lodash "^4.17.15"
     pluralize "^8.0.0"
@@ -7904,10 +7904,10 @@ fuzzy@^0.1.3:
   resolved "https://registry.yarnpkg.com/fuzzy/-/fuzzy-0.1.3.tgz#4c76ec2ff0ac1a36a9dccf9a00df8623078d4ed8"
   integrity sha1-THbsL/CsGjap3M+aAN+GIweNTtg=
 
-gatsby-cli@^2.12.77:
-  version "2.12.77"
-  resolved "https://registry.npmjs.org/gatsby-cli/-/gatsby-cli-2.12.77.tgz#d17ced52a46776b51b31609ba8ec511bdd01600d"
-  integrity sha512-6x4OcXXmhVaXJk+1OS8iHAUzgEQk/bny4tVkZc5o1merV4tInmbWDGNkezjou+ahRwyHp0fxfHFrN/fcoCKivw==
+gatsby-cli@^2.12.79:
+  version "2.12.79"
+  resolved "https://registry.npmjs.org/gatsby-cli/-/gatsby-cli-2.12.79.tgz#a9b162c08d980647c8aab5ccaba306e6b7d3ee0d"
+  integrity sha512-0BYRDlPWDm40bMjXnRW3bauBuBwUaPcVCMBR894FOZS1ca1xz2mCjecp0AN1b8eiwQZ5TvrOIhr5V8IDwYXJ/A==
   dependencies:
     "@babel/code-frame" "^7.10.3"
     "@hapi/joi" "^15.1.1"
@@ -7923,7 +7923,7 @@ gatsby-cli@^2.12.77:
     fs-exists-cached "^1.0.0"
     fs-extra "^8.1.0"
     gatsby-core-utils "^1.3.15"
-    gatsby-recipes "^0.2.7"
+    gatsby-recipes "^0.2.9"
     gatsby-telemetry "^1.3.26"
     hosted-git-info "^3.0.4"
     ink "^2.7.1"
@@ -8135,10 +8135,10 @@ gatsby-react-router-scroll@^3.0.12:
   dependencies:
     "@babel/runtime" "^7.10.3"
 
-gatsby-recipes@^0.2.7:
-  version "0.2.7"
-  resolved "https://registry.npmjs.org/gatsby-recipes/-/gatsby-recipes-0.2.7.tgz#0a9003eb354d904aed81d1417a876246a208eac2"
-  integrity sha512-GM2OuXRzbRijVRG2lFQ6bwUfyfR53+lOn2jxcbzjsNxq7aL5C3q7M1ocB2xaM1YGtZaH24WzQkX5y8GSrQK2cA==
+gatsby-recipes@^0.2.9:
+  version "0.2.9"
+  resolved "https://registry.npmjs.org/gatsby-recipes/-/gatsby-recipes-0.2.9.tgz#635e2264b673b67d71b4f209c59f562f42bc86fc"
+  integrity sha512-gLRjYRAsW4N4gjJjRynpkshiRtM4ExqU/ghDmFZzfH3sCzEYs/BKAradoy8WNuTziwCnV5fh3kKPq7P2TSx6sw==
   dependencies:
     "@babel/core" "^7.9.6"
     "@babel/generator" "^7.9.6"
@@ -8299,10 +8299,10 @@ gatsby-transformer-sharp@^2.5.12:
     semver "^5.7.1"
     sharp "^0.25.1"
 
-gatsby@^2.24.33:
-  version "2.24.33"
-  resolved "https://registry.npmjs.org/gatsby/-/gatsby-2.24.33.tgz#ddbc1b55a94bbfd072dcdbcee5f58facaee785d0"
-  integrity sha512-Pf7pqY9oz+arD0n2UvRgMuw5SK5B3zDVaMzYA2fQYV+Z7th8hR0i/ek0PMFv1iCDn0eFzv5bRcJVQM6AopuxEg==
+gatsby@^2.24.36:
+  version "2.24.36"
+  resolved "https://registry.npmjs.org/gatsby/-/gatsby-2.24.36.tgz#0bcfb328f2edc5270995c995f2669b8d2d878bfa"
+  integrity sha512-hpfNWnbRjQTZSshPvfckZaNDLoc2rcrqzw7O0UMUSfAihnQ7WWGsSnyymvL1Da0Cxqep1utI5HkaYe9QTdKKsQ==
   dependencies:
     "@babel/code-frame" "^7.10.3"
     "@babel/core" "^7.10.3"
@@ -8365,7 +8365,7 @@ gatsby@^2.24.33:
     find-cache-dir "^3.3.1"
     fs-exists-cached "1.0.0"
     fs-extra "^8.1.0"
-    gatsby-cli "^2.12.77"
+    gatsby-cli "^2.12.79"
     gatsby-core-utils "^1.3.15"
     gatsby-graphiql-explorer "^0.4.12"
     gatsby-legacy-polyfills "^0.0.2"
@@ -10499,10 +10499,10 @@ jsbn@~0.1.0:
   resolved "https://registry.yarnpkg.com/jsbn/-/jsbn-0.1.1.tgz#a5e654c2e5a2deb5f201d96cefbca80c0ef2f513"
   integrity sha1-peZUwuWi3rXyAdls77yoDA7y9RM=
 
-jsdoctypeparser@^8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/jsdoctypeparser/-/jsdoctypeparser-8.0.0.tgz#a04a944539d3f86e30040c1ece6f6730f865f81a"
-  integrity sha512-eLCs6s4JqN8TjFJfgdiLHRvogLhOAJz+5RIA2FtoMe6ZDyuvghvppnlIToqAEnVbxRqLMrfnNXpW8FpmR6IMBw==
+jsdoctypeparser@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.npmjs.org/jsdoctypeparser/-/jsdoctypeparser-9.0.0.tgz#8c97e2fb69315eb274b0f01377eaa5c940bd7b26"
+  integrity sha512-jrTA2jJIL6/DAEILBEh2/w9QxCuwmvNXIry39Ay/HVfhE3o2yVV0U44blYkqdHA/OKloJEqvJy0xU+GSdE2SIw==
 
 jsesc@^2.5.1:
   version "2.5.2"
@@ -11689,11 +11689,6 @@ moment@^2.27.0:
   version "2.27.0"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.27.0.tgz#8bff4e3e26a236220dfe3e36de756b6ebaa0105d"
   integrity sha512-al0MUK7cpIcglMv3YF13qSgdAIqxHTO7brRtaz3DlSULbqfazqkc5kEjNrLDOM7fsjshoFIihnU8snrP7zUvhQ==
-
-motion-ui@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/motion-ui/-/motion-ui-2.0.3.tgz#3a87f8fea4512d654c0822a0b346f23dadf0d0b7"
-  integrity sha512-f9xzh/hbZTUYjk4M7y1aDcsiPTfqUbuvCv/+If05TSIBEJMu3hGBU+YSe9csQPP7WBBHXxjossEygM/TJo2enw==
 
 move-concurrently@^1.0.1:
   version "1.0.1"
@@ -15030,10 +15025,10 @@ selfsigned@^1.10.7:
   dependencies:
     node-forge "0.9.0"
 
-semantic-styled-ui@0.32.2:
-  version "0.32.2"
-  resolved "https://registry.npmjs.org/semantic-styled-ui/-/semantic-styled-ui-0.32.2.tgz#59aaf215d03ee971249613ae46add1ab7bd1b676"
-  integrity sha512-V9OIvkn1Q/0xiyIVwhDHVi489B+hdCPQ3iLyny6iKFTdPdFy+6IX2aIaI9fDoRH4lXDL00dIt7wFYGlSHVVhHA==
+semantic-styled-ui@0.33.1:
+  version "0.33.1"
+  resolved "https://registry.npmjs.org/semantic-styled-ui/-/semantic-styled-ui-0.33.1.tgz#5fab114e4e22e2145fa456175ddd7f24abf4aa06"
+  integrity sha512-R11vzD5YykrFskYRGOZwqcv4KROyikMkQAU+Qu0fkRdbRqnUcztniE+zOED1EEJj03kDlNTjnM2wHhHWmmOijg==
   dependencies:
     "@types/react" "^16.9.44"
     prop-types "^15.7.2"

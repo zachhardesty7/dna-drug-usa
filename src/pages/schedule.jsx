@@ -6,7 +6,7 @@ import {
   Grid,
   Icon,
   Message,
-  Segment,
+  PageSegment,
   Step,
   Title,
   Transition,
@@ -28,7 +28,7 @@ S.Step = styled(Step)`
   flex-wrap: nowrap;
 `
 
-const ConsultationPage = ({ data: { page } }) => {
+const SchedulePage = ({ data: { page } }) => {
   const [success, setSuccess] = React.useState(false)
   const [error, setError] = React.useState(false)
   const [textArea, setTextArea] = React.useState("")
@@ -83,7 +83,7 @@ const ConsultationPage = ({ data: { page } }) => {
   }
 
   return (
-    <Segment vertical basic>
+    <PageSegment>
       <Container>
         <Title>{page.title}</Title>
         <Grid>
@@ -98,7 +98,7 @@ const ConsultationPage = ({ data: { page } }) => {
             >
               {/* limit bot responses with Netlify */}
               <input type="hidden" name="bot-field" />
-              <input type="hidden" name="form-name" value="consultation" />
+              <input type="hidden" name="form-name" value="schedule" />
 
               <Form.Input
                 name="name"
@@ -267,14 +267,14 @@ const ConsultationPage = ({ data: { page } }) => {
           </Grid.Column>
         </Grid>
       </Container>
-    </Segment>
+    </PageSegment>
   )
 }
 
 export const query = graphql`
   query {
-    page: contentfulConsultationPage(
-      contentful_id: { eq: "f6C2Yd89EWH3DuGQH5hL9" }
+    page: contentfulSchedulePage(
+      contentful_id: { eq: "wYWMrGhUhna1nWrBN1IcE" }
     ) {
       title
       services
@@ -287,4 +287,4 @@ export const query = graphql`
   }
 `
 
-export default ConsultationPage
+export default SchedulePage

@@ -22,7 +22,7 @@ const LandingPage = ({ data: { page } }) => (
     >
       <Hero.Title secondary>{page.hero.title}</Hero.Title>
       <Hero.Subtitle as="h3">{page.hero.subtitle.subtitle}</Hero.Subtitle>
-      <Link link="/consultation" as={GatsbyLink}>
+      <Link link="/schedule" as={GatsbyLink}>
         <Hero.Button
           secondary
           color={defaultColors.primary}

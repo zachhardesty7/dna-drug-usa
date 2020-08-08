@@ -8,7 +8,7 @@ export const brandColors = {
 export const navLinksMap = {
   Home: ".",
   "Services & Pricing": "services",
-  "Schedule a Consultation": "consultation",
+  "Schedule a Consultation": "schedule",
   "How it Works": "process",
   Reviews: "reviews",
   "Contact Us": "contact",

@@ -3,7 +3,7 @@ import {
   Container,
   Icon,
   Item,
-  Segment,
+  PageSegment,
   Title,
   margin,
 } from "semantic-styled-ui"
@@ -24,7 +24,7 @@ S.ItemContent = styled(Item.Content)`
 const ReviewsPage = ({ data: { page } }) => {
   return (
     <>
-      <Segment vertical basic>
+      <PageSegment>
         <Container>
           <Title>{page.title}</Title>
           <Item.Group relaxed>
@@ -46,7 +46,7 @@ const ReviewsPage = ({ data: { page } }) => {
             ))}
           </Item.Group>
         </Container>
-      </Segment>
+      </PageSegment>
     </>
   )
 }

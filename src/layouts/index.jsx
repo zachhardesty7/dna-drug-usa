@@ -41,7 +41,7 @@ const LayoutTemplate = ({ children }) => {
         items
         logo {
           title
-          file {
+          svg: file {
             url
             fileName
             contentType
@@ -81,9 +81,12 @@ const LayoutTemplate = ({ children }) => {
           <Navigation text>
             <Navigation.Left>
               <Navigation.Logo as={Link} link="/" activeClassName="active">
-                {/* <GatsbyImage fixed={contentfulNavigationBar.logo?.fixed} alt='logo' /> */}
+                {/* <GatsbyImage
+                  fixed={contentfulNavigationBar.logo?.fixed}
+                  alt="logo"
+                /> */}
                 <S.NavLogo
-                  src={contentfulNavigationBar.logo?.file.url}
+                  src={contentfulNavigationBar.logo?.svg.url}
                   alt="logo"
                 />
               </Navigation.Logo>
@@ -105,13 +108,15 @@ const LayoutTemplate = ({ children }) => {
           <div>{children}</div>
           <Footer inverted>
             <Footer.Content
-              copyright="DNA"
+              copyright="DNA & Drug USA"
               date="July 2020"
               developerName="Zach Hardesty"
               developerLink="https://zachhardesty.com"
             />
             <Flexbox justify="end">
-              <S.Link href="contact">Contact Us!</S.Link>
+              <S.Link as={Link} to="/contact">
+                Contact Us!
+              </S.Link>
               <IconLink.Group light justify="end">
                 <IconLink
                   name="facebook"
