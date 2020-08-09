@@ -26,6 +26,9 @@ S.Message = styled(Message)`
 
 S.Step = styled(Step)`
   flex-wrap: nowrap;
+  &&::after {
+    display: none;
+  }
 `
 
 const SchedulePage = ({ data: { page } }) => {
@@ -256,8 +259,8 @@ const SchedulePage = ({ data: { page } }) => {
           {/* #region - steps */}
           <Grid.Column width={4}>
             <Step.Group vertical ordered>
-              {page.steps.map((step) => (
-                <S.Step key={step.content.content}>
+              {page.steps.map((step, i) => (
+                <S.Step active={i === 0} key={step.content.content}>
                   <Step.Content>
                     <Step.Description>{step.content.content}</Step.Description>
                   </Step.Content>
