@@ -1,20 +1,25 @@
 import { graphql } from "gatsby"
 import React from "react"
-import { Blurbs, Container, Icon, Segment, Title } from "semantic-styled-ui"
+import { Blurbs, Container, Icon, PageSegment, Title } from "semantic-styled-ui"
 
 const ProcessPage = ({ data: { page } }) => {
   return (
-    <Blurbs padded="bottom" title={page.title}>
-      {page.steps.map((item) => (
-        <Blurbs.Item
-          key={item.title}
-          header={item.title}
-          icon={item.icon && <Icon name={item.icon} inverted size="bigger" />}
-        >
-          {item.content.content}
-        </Blurbs.Item>
-      ))}
-    </Blurbs>
+    <PageSegment>
+      <Container>
+        <Title>{page.title}</Title>
+        <Blurbs vertical padded="bottom">
+          {page.steps.map((item) => (
+            <Blurbs.Item
+              key={item.title}
+              header={item.title}
+              icon={item.icon && <Icon name={item.icon} size="huge" />}
+            >
+              {item.content.content}
+            </Blurbs.Item>
+          ))}
+        </Blurbs>
+      </Container>
+    </PageSegment>
   )
 }
 

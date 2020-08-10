@@ -61,7 +61,7 @@ export const query = graphql`
         background {
           title
           fluid(maxWidth: 3000) {
-            ...GatsbyContentfulFluid_tracedSVG
+            ...GatsbyContentfulFluid_withWebp
           }
         }
         title

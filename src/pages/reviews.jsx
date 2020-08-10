@@ -36,8 +36,8 @@ S.ItemContent = styled(Item.Content)`
   ${margin("vertical")("0.5em")};
 `
 
-const SKELETON_ITEM = () => (
-  <Grid.Column>
+const SKELETON_ITEM = (i) => (
+  <Grid.Column key={i}>
     <Item.Group relaxed>
       <Item>
         <Avatar
@@ -61,8 +61,9 @@ const SKELETON_ITEM = () => (
             </Item.Description>
           </Placeholder>
           <Item.Extra>
-            {new Array(MAX_RATING).fill(null).map((_, i) => (
-              <Icon name="star" color="grey" size="large" />
+            {new Array(MAX_RATING).fill(null).map((_, j) => (
+              // eslint-disable-next-line react/no-array-index-key
+              <Icon name="star" color="grey" size="large" key={j} />
             ))}
           </Item.Extra>
         </S.ItemContent>
@@ -72,7 +73,6 @@ const SKELETON_ITEM = () => (
 )
 
 const ReviewsPage = ({ data: { page } }) => {
-  console.log("page", page)
   // eslint-disable-next-line no-param-reassign
   if (COMING_SOON) page.reviews = SAMPLE_DATA
   const [ready, setReady] = React.useState(false)
@@ -93,11 +93,11 @@ const ReviewsPage = ({ data: { page } }) => {
         )}
         <Grid columns="2" widths="equal" relaxed>
           {COMING_SOON && ready ? (
-            <>{new Array(4).fill(null).map(() => SKELETON_ITEM())}</>
+            <>{new Array(4).fill(null).map((_, i) => SKELETON_ITEM(i))}</>
           ) : (
             page?.reviews?.map?.((review) => (
-              <Grid.Column>
-                <Item key={review.name}>
+              <Grid.Column key={review.name}>
+                <Item>
                   <Avatar size="10em" name={review.name} />
                   <S.ItemContent verticalAlign="middle">
                     <Item.Header as="h2">{review.name}</Item.Header>
@@ -110,6 +110,7 @@ const ReviewsPage = ({ data: { page } }) => {
                           name="star"
                           color={i < review.rating ? "yellow" : "grey"}
                           size="large"
+                          key={i} // eslint-disable-line react/no-array-index-key
                         />
                       ))}
                     </Item.Extra>

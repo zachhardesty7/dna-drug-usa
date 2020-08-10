@@ -15025,10 +15025,10 @@ selfsigned@^1.10.7:
   dependencies:
     node-forge "0.9.0"
 
-semantic-styled-ui@0.33.1:
-  version "0.33.1"
-  resolved "https://registry.npmjs.org/semantic-styled-ui/-/semantic-styled-ui-0.33.1.tgz#5fab114e4e22e2145fa456175ddd7f24abf4aa06"
-  integrity sha512-R11vzD5YykrFskYRGOZwqcv4KROyikMkQAU+Qu0fkRdbRqnUcztniE+zOED1EEJj03kDlNTjnM2wHhHWmmOijg==
+semantic-styled-ui@0.35.0:
+  version "0.35.0"
+  resolved "https://registry.npmjs.org/semantic-styled-ui/-/semantic-styled-ui-0.35.0.tgz#cb0c961fdf545cda2c22417ceb29e8965513c1d7"
+  integrity sha512-YYu59gjcAoko9fkmNRe53Wy7wbrM3Wya4aqAe2y8DIjKM9rom3KA40WnRoIdGn+W6uMcyHRXtnDcppl5Ip50GA==
   dependencies:
     "@types/react" "^16.9.44"
     prop-types "^15.7.2"

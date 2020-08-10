@@ -64,15 +64,17 @@ const ServicesPage = ({ data: { page } }) => {
                           </List.Item>
                         ))}
                       </List>
-                      <Divider horizontal>Samples Required</Divider>
                       {service.samples && (
-                        <Label.Group>
-                          {service.samples?.map((sample) => (
-                            <Label horizontal key={sample}>
-                              {sample}
-                            </Label>
-                          ))}
-                        </Label.Group>
+                        <>
+                          <Divider horizontal>Samples Required</Divider>
+                          <Label.Group>
+                            {service.samples?.map((sample) => (
+                              <Label horizontal key={sample}>
+                                {sample}
+                              </Label>
+                            ))}
+                          </Label.Group>
+                        </>
                       )}
                     </Accordion.Content>
                   </React.Fragment>
