@@ -43,13 +43,14 @@
     "react-avatar": "^3.9.7",
     "react-dom": "16.13.1",
     "react-helmet": "^6.1.0",
-    "semantic-styled-ui": "0.35.4",
+    "semantic-styled-ui": "latest",
     "styled-components": "^5.1.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^7.6.0",
     "eslint-config-hardesty": "^3.3.2",
+    "gatsby-plugin-why-did-you-render-redux": "^0.2.1",
     "netlify-cli": "^2.59.0"
   },
   "homepage": "https://github.com/zachhardesty/dna-drug-usa#readme",

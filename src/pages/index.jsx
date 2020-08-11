@@ -9,7 +9,6 @@ const LandingPage = ({ data: { page } }) => (
     <Hero
       overlay="darker"
       baseline="bottom"
-      size="relaxed"
       justify="end"
       boxed
       images={[
