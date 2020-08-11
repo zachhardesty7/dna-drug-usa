@@ -111,7 +111,7 @@ const LayoutTemplate = ({ children }) => {
               developerLink="https://zachhardesty.com"
             />
             <Flexbox justify="end">
-              <S.Link as={Link} to="/contact">
+              <S.Link as={Link} light to="/contact">
                 Contact Us!
               </S.Link>
               <IconLink.Group light justify="end">
