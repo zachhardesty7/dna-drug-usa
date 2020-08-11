@@ -80,15 +80,12 @@ const LayoutTemplate = ({ children }) => {
         <div>
           <Navigation text>
             <Navigation.Left>
-              <Navigation.Logo as={Link} link="/" activeClassName="active">
+              <Navigation.Logo as={Link} link="/" logoSize="large">
                 {/* <GatsbyImage
                   fixed={contentfulNavigationBar.logo?.fixed}
                   alt="logo"
                 /> */}
-                <S.NavLogo
-                  src={contentfulNavigationBar.logo?.svg.url}
-                  alt="logo"
-                />
+                <img src={contentfulNavigationBar.logo?.svg.url} alt="logo" />
               </Navigation.Logo>
             </Navigation.Left>
             <Navigation.Right>

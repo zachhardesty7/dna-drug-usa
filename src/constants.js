@@ -6,7 +6,7 @@ export const brandColors = {
 }
 
 export const navLinksMap = {
-  Home: ".",
+  Home: "",
   "Services & Pricing": "services",
   "Schedule a Consultation": "schedule",
   "How it Works": "process",
