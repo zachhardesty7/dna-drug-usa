@@ -1,7 +1,7 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 
-import { Link, graphql, navigate, useStaticQuery } from "gatsby"
+import { Link, graphql, useStaticQuery } from "gatsby"
 
 import {
   Flexbox,
@@ -12,12 +12,22 @@ import {
   getHoverColor,
 } from "semantic-styled-ui"
 
-import "fomantic-ui-css/semantic.css"
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components"
-import GatsbyImage from "gatsby-image"
 import { defaultColors, navLinksMap } from "../constants"
+import "fomantic-ui-css/semantic.css"
 
-const GlobalStyle = createGlobalStyle``
+const GlobalStyle = createGlobalStyle`
+/* typography theme: https://github.com/KyleAMathews/typography.js/tree/master/packages/typography-theme-fairy-gates */
+html {
+  font-size: 18px;
+}
+body {
+  font-size: 18px;
+  line-height: 1.45em;
+  font-family: 'Quattrocento Sans', 'Times New Roman', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
+`
 
 // styled-components namespace
 const S = {}

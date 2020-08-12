@@ -138,8 +138,8 @@ const SchedulePage = ({ data: { page } }) => {
                 name="street"
                 error={error}
                 fluid
-                placeholder="Street"
-                label="Street"
+                placeholder="Address"
+                label="Address"
                 onChange={handleChange}
                 value={textInputs.street}
               />
@@ -179,7 +179,9 @@ const SchedulePage = ({ data: { page } }) => {
               {/* MARK: services */}
               <Form.Field>
                 {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-                <label htmlFor="services">Services you're interested in:</label>
+                <label htmlFor="services">
+                  Interested Services / Tests (check all that apply)
+                </label>
               </Form.Field>
               <Masonry
                 id="services"

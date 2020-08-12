@@ -15,10 +15,35 @@ import {
   PageSegment,
   Sticky,
   Title,
+  getBackgroundColor,
+  getColor,
+  getHoverBackgroundColor,
   margin,
 } from "semantic-styled-ui"
 
-import { css } from "styled-components"
+import styled, { css } from "styled-components"
+
+const S = {}
+
+S.Header = styled(Header)`
+  ${getColor("primary")};
+`
+
+S.Button = styled(Button)`
+  display: inline-flex;
+  align-items: center;
+  margin-right: 0;
+  ${getColor("white")};
+  ${getBackgroundColor("secondary")};
+  transition: ease-in-out 50ms;
+
+  ${margin("top")("0.5em")};
+
+  ${getHoverBackgroundColor("primary")};
+  &:hover {
+    transition: ease-in-out 100ms;
+  }
+`
 
 const ServicesPage = ({ data: { page } }) => {
   const [expandedService, setExpandedService] = React.useState()
@@ -31,8 +56,8 @@ const ServicesPage = ({ data: { page } }) => {
             <Accordion styled fluid>
               {page.services.map((service, i) => {
                 const costs = service.costs.map((cost) => cost.cost)
-                const min = Math.min(...costs)
-                const max = Math.max(...costs)
+                const min = Math.min(...costs).toLocaleString()
+                const max = Math.max(...costs).toLocaleString()
 
                 return (
                   <React.Fragment key={service.type}>
@@ -60,7 +85,7 @@ const ServicesPage = ({ data: { page } }) => {
                       <List bulleted>
                         {service.costs?.map(({ cost, type }) => (
                           <List.Item>
-                            {type} - <b>${cost}</b>
+                            {type} - <b>${cost.toLocaleString()}</b>
                           </List.Item>
                         ))}
                       </List>
@@ -84,19 +109,19 @@ const ServicesPage = ({ data: { page } }) => {
           </Grid.Column>
           <Grid.Column width="6">
             <Sticky bottomOffset={25} offset={25}>
-              <Message info size="large">
-                <Header as="h2">Schedule an Appointment Now!</Header>
+              <Message size="large" floating>
+                <S.Header as="h2">Schedule an Appointment Now!</S.Header>
                 <Message.Content as="p">
                   Fill out some quick information amd let us know what tests
                   you're interested in and we'll get an appointment set up for
                   you as soon as possible.
                 </Message.Content>
                 {/* NOTE: `link` and `as` could simply be applied to the `Button` */}
-                <Link link="/schedule" as={GatsbyLink}>
-                  <Button icon labelPosition="right">
+                <Link link="/schedule" wrap as={GatsbyLink}>
+                  <S.Button secondary icon labelPosition="right">
                     Schedule
                     <Icon name="right arrow" />
-                  </Button>
+                  </S.Button>
                 </Link>
               </Message>
             </Sticky>

@@ -3,6 +3,7 @@ export const brandColors = {
   orange: "#ca6914",
   teal: "#749ad3",
   white: "#ffffff",
+  coolGrey: "#f3f4f5",
 }
 
 export const navLinksMap = {
