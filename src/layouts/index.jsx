@@ -19,15 +19,46 @@ import "fomantic-ui-css/semantic.css"
 const GlobalStyle = createGlobalStyle`
 /* typography theme: https://github.com/KyleAMathews/typography.js/tree/master/packages/typography-theme-fairy-gates */
 html {
-  font-size: 18px;
+  font-size: 20px;
 }
-body {
-  font-size: 18px;
-  line-height: 1.45em;
-  font-family: 'Quattrocento Sans', 'Times New Roman', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+h1 {
+  font-family: 'IBM Plex Sans', 'Times New Roman', 'Helvetica Neue', Arial, Helvetica, sans-serif !important;
   font-weight: 400;
 }
+h2,h3,h4,h5,h6 {
+  font-family: 'Heebo', 'Times New Roman', 'Helvetica Neue', Arial, Helvetica, sans-serif !important;
+  font-weight: 400;
+}
+body {
+  font-size: 20px;
+  line-height: 1.56em;
+  font-family: 'Source Sans Pro', 'Times New Roman', 'Helvetica Neue', Arial, Helvetica, sans-serif !important;
+  font-weight: 400;
+}
+
+.ui.header, .ui.message .header {
+  font-weight: 500;
+}
+/* .ui.header, .ui.message .header, .ui.form .field > label {
+  font-weight: 500;
+}
+
+.ui.form .field > label {
+  font-weight: 600;
+} */
+
+/* a {
+  color: unset !important;
+} */
+
 `
+
+/**
+ * noto sans
+ * lora
+ * libre franklin
+ * abel
+ */
 
 // styled-components namespace
 const S = {}
@@ -85,10 +116,41 @@ const LayoutTemplate = ({ children }) => {
           {/* <meta itemProp='email' content='info@gulfcorpusa.com' /> */}
         </Helmet>
 
+        {/* <link
+          href="https://fonts.googleapis.com/css2?family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          rel="stylesheet"
+        /> */}
+
+        <link
+          href="https://fonts.googleapis.com/css2?family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap"
+          rel="stylesheet"
+        />
+        {/* <link
+          href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@300;400;600;700;900&display=swap"
+          rel="stylesheet"
+        /> */}
+        {/* <link
+          href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700&display=swap"
+          rel="stylesheet"
+        /> */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;700&display=swap"
+          rel="stylesheet"
+        />
+
+        <link
+          href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+
         <GlobalStyle />
 
         <div>
-          <Navigation text>
+          <Navigation>
             <Navigation.Left>
               <Navigation.Logo as={Link} link="/" logoSize="large">
                 {/* <GatsbyImage

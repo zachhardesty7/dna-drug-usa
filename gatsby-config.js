@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
@@ -32,21 +33,6 @@ module.exports = {
     {
       resolve: "gatsby-source-contentful",
       options: contentfulConfig,
-    },
-    {
-      resolve: "gatsby-plugin-prefetch-google-fonts",
-      options: {
-        fonts: [
-          {
-            family: "Work Sans",
-            variants: ["600"],
-          },
-          {
-            family: "Quattrocento Sans",
-            variants: ["400", "700"],
-          },
-        ],
-      },
     },
     "gatsby-plugin-layout",
     "gatsby-plugin-styled-components",

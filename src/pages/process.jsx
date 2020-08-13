@@ -7,7 +7,7 @@ const ProcessPage = ({ data: { page } }) => {
     <PageSegment>
       <Container>
         <Title>{page.title}</Title>
-        <Blurbs vertical padded="bottom">
+        <Blurbs vertical padded={false}>
           {page.steps.map((item) => (
             <Blurbs.Item
               key={item.title}

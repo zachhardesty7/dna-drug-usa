@@ -13,7 +13,7 @@ import {
   margin,
   spacingMap,
 } from "semantic-styled-ui"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { Masonry } from "masonic"
 import { graphql } from "gatsby"
 
@@ -40,7 +40,7 @@ const ContactPage = ({ data: { page } }) => {
         <Container>
           <Grid columns="equal" relaxed="very">
             <Grid.Column>
-              <Title>{page.title}</Title>
+              <Header as="h2">{page.title}</Header>
               <p>{page.content.content}</p>
               <div
                 css={`
@@ -72,9 +72,23 @@ const ContactPage = ({ data: { page } }) => {
                 tabIndex={null} // prevent focus box from appearing
                 render={({ data: location }) => (
                   <div>
-                    <Header as="h3">{location.title}</Header>
+                    <Header
+                      as="h3"
+                      css={css`
+                        margin-bottom: 0.25em;
+                      `}
+                    >
+                      {location.title}
+                    </Header>
                     {location.places.map((place) => (
-                      <li key={place}>{place}</li>
+                      <li
+                        key={place}
+                        css={css`
+                          font-size: 0.9em;
+                        `}
+                      >
+                        {place}
+                      </li>
                     ))}
                   </div>
                 )}

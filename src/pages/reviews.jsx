@@ -41,7 +41,7 @@ const SKELETON_ITEM = (i) => (
     <Item.Group relaxed>
       <Item>
         <Avatar
-          size="10em"
+          size="8em"
           name={"?a".repeat(Math.ceil(Math.random() * 19 + 1))}
         />
         <S.ItemContent verticalAlign="middle">
@@ -63,7 +63,7 @@ const SKELETON_ITEM = (i) => (
           <Item.Extra>
             {new Array(MAX_RATING).fill(null).map((_, j) => (
               // eslint-disable-next-line react/no-array-index-key
-              <Icon name="star" color="grey" size="large" key={j} />
+              <Icon name="star" color="grey" key={j} />
             ))}
           </Item.Extra>
         </S.ItemContent>
@@ -85,8 +85,8 @@ const ReviewsPage = ({ data: { page } }) => {
         <Title>{page.title}</Title>
         {COMING_SOON && ready && (
           <Transition animation="fade down" duration={1000} transitionOnMount>
-            <Message warning compact size="big">
-              <Message.Header>Coming soon!</Message.Header>
+            <Message warning compact size="large">
+              <Message.Header as="h2">Coming soon!</Message.Header>
               <p>Please check back later to hear from some of our customers.</p>
             </Message>
           </Transition>
@@ -98,7 +98,7 @@ const ReviewsPage = ({ data: { page } }) => {
             page?.reviews?.map?.((review) => (
               <Grid.Column key={review.name}>
                 <Item>
-                  <Avatar size="10em" name={review.name} />
+                  <Avatar size="8em" name={review.name} />
                   <S.ItemContent verticalAlign="middle">
                     <Item.Header as="h2">{review.name}</Item.Header>
                     <Item.Description>
@@ -109,7 +109,6 @@ const ReviewsPage = ({ data: { page } }) => {
                         <Icon
                           name="star"
                           color={i < review.rating ? "yellow" : "grey"}
-                          size="large"
                           key={i} // eslint-disable-line react/no-array-index-key
                         />
                       ))}

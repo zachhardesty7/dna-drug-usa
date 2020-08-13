@@ -90,7 +90,7 @@ const SchedulePage = ({ data: { page } }) => {
       <Container>
         <Title>{page.title}</Title>
         <Grid>
-          <Grid.Column width={12}>
+          <Grid.Column width={10}>
             <Form
               // name={name}
               onSubmit={handleSubmit}
@@ -259,7 +259,7 @@ const SchedulePage = ({ data: { page } }) => {
             </Form>
           </Grid.Column>
           {/* #region - steps */}
-          <Grid.Column width={4}>
+          <Grid.Column width={6}>
             <Step.Group vertical ordered>
               {page.steps.map((step, i) => (
                 <S.Step active={i === 0} key={step.content.content}>

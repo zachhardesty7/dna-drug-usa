@@ -19,9 +19,10 @@ import {
   getColor,
   getHoverBackgroundColor,
   margin,
+  spacingMap,
 } from "semantic-styled-ui"
 
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 
 const S = {}
 
@@ -45,12 +46,16 @@ S.Button = styled(Button)`
   }
 `
 
+S.Message = styled(Message)`
+  ${margin("bottom")(spacingMap.tight)};
+`
+
 const ServicesPage = ({ data: { page } }) => {
   const [expandedService, setExpandedService] = React.useState()
   return (
     <PageSegment>
       <Container>
-        <Title>{page.title}</Title>
+        <Title as="h1">{page.title}</Title>
         <Grid>
           <Grid.Column width="10">
             <Accordion styled fluid>
@@ -62,6 +67,7 @@ const ServicesPage = ({ data: { page } }) => {
                 return (
                   <React.Fragment key={service.type}>
                     <Accordion.Title
+                      as="h2"
                       active={expandedService === i}
                       index={i}
                       onClick={() =>
@@ -91,7 +97,9 @@ const ServicesPage = ({ data: { page } }) => {
                       </List>
                       {service.samples && (
                         <>
-                          <Divider horizontal>Samples Required</Divider>
+                          <Divider as="h3" horizontal>
+                            Samples Required
+                          </Divider>
                           <Label.Group>
                             {service.samples?.map((sample) => (
                               <Label horizontal key={sample}>
@@ -108,8 +116,8 @@ const ServicesPage = ({ data: { page } }) => {
             </Accordion>
           </Grid.Column>
           <Grid.Column width="6">
-            <Sticky bottomOffset={25} offset={25}>
-              <Message size="large" floating>
+            <Sticky bottomOffset={80} offset={25}>
+              <S.Message size="large" floating>
                 <S.Header as="h2">Schedule an Appointment Now!</S.Header>
                 <Message.Content as="p">
                   Fill out some quick information amd let us know what tests
@@ -123,7 +131,7 @@ const ServicesPage = ({ data: { page } }) => {
                     <Icon name="right arrow" />
                   </S.Button>
                 </Link>
-              </Message>
+              </S.Message>
             </Sticky>
           </Grid.Column>
         </Grid>
