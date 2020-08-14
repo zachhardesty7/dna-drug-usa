@@ -78,7 +78,7 @@ S.Link = styled.a`
 const LayoutTemplate = ({ children }) => {
   const { contentfulNavigationBar } = useStaticQuery(graphql`
     {
-      contentfulNavigationBar(contentful_id: { eq: "2e9EyDgavMDGf7BOpNvmSQ" }) {
+      contentfulNavigationBar(contentful_id: { eq: "4XPXLwe7PTJBKRwJMY7dFR" }) {
         items
         logo {
           title
