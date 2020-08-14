@@ -26,8 +26,18 @@ S.Message = styled(Message)`
 
 S.Step = styled(Step)`
   flex-wrap: nowrap;
-  &&::after {
-    display: none;
+  &&&:after {
+    ${({ $notch }) => {
+      if ($notch === "left")
+        return `
+          left: 0;
+          transform: translateY(-50%) translateX(-50%) rotate(135deg);
+        `
+
+      if (!$notch) return "display: none;"
+
+      return null
+    }};
   }
 `
 
@@ -262,7 +272,11 @@ const SchedulePage = ({ data: { page } }) => {
           <Grid.Column width={6}>
             <Step.Group vertical ordered>
               {page.steps.map((step, i) => (
-                <S.Step active={i === 0} key={step.content.content}>
+                <S.Step
+                  active={i === 0}
+                  key={step.content.content}
+                  $notch="left"
+                >
                   <Step.Content>
                     <Step.Description>{step.content.content}</Step.Description>
                   </Step.Content>

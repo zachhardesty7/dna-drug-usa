@@ -1,7 +1,15 @@
 import { Link as GatsbyLink, graphql } from "gatsby"
 import GatsbyImage from "gatsby-image"
 import React from "react"
-import { Blurbs, Divider, Hero, Icon, Link } from "semantic-styled-ui"
+import {
+  Blurbs,
+  Divider,
+  Hero,
+  Icon,
+  Link,
+  PageSegment,
+  Title,
+} from "semantic-styled-ui"
 import { defaultColors } from "../constants"
 
 const LandingPage = ({ data: { page } }) => (
@@ -11,6 +19,7 @@ const LandingPage = ({ data: { page } }) => (
       baseline="bottom"
       justify="end"
       boxed
+      // size="relaxed"
       images={[
         <GatsbyImage
           fluid={page.hero.background.fluid}
@@ -31,29 +40,35 @@ const LandingPage = ({ data: { page } }) => (
         </Hero.Button>
       </Link>
     </Hero>
-    {/* <Segment.Group> */}
-    <Blurbs title={page.aboutTitle}>
-      {page.aboutSection.map((item) => (
-        <Blurbs.Item
-          key={item.title}
-          header={item.title}
-          icon={item.icon && <Icon name={item.icon} size="huge" />}
-        >
-          {item.content.content}
-        </Blurbs.Item>
-      ))}
-    </Blurbs>
-    <Divider />
-    <Blurbs title={page.purposesTitle}>
-      {page.purposesSection.map((item) => (
-        <Blurbs.Item
-          key={item.title}
-          header={item.title}
-          icon={item.icon && <Icon name={item.icon} size="huge" />}
-        />
-      ))}
-    </Blurbs>
-    {/* </Segment.Group> */}
+    <main>
+      <PageSegment>
+        <Title>{page.aboutTitle}</Title>
+        <Blurbs>
+          {page.aboutSection.map((item) => (
+            <Blurbs.Item
+              key={item.title}
+              header={item.title}
+              icon={item.icon && <Icon name={item.icon} size="huge" />}
+            >
+              {item.content.content}
+            </Blurbs.Item>
+          ))}
+        </Blurbs>
+      </PageSegment>
+      <Divider />
+      <PageSegment>
+        <Title>{page.aboutTitle}</Title>
+        <Blurbs>
+          {page.purposesSection.map((item) => (
+            <Blurbs.Item
+              key={item.title}
+              header={item.title}
+              icon={item.icon && <Icon name={item.icon} size="huge" />}
+            />
+          ))}
+        </Blurbs>
+      </PageSegment>
+    </main>
   </>
 )
 

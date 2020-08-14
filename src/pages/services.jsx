@@ -116,7 +116,7 @@ const ServicesPage = ({ data: { page } }) => {
             </Accordion>
           </Grid.Column>
           <Grid.Column width="6">
-            <Sticky bottomOffset={80} offset={25}>
+            <Sticky bottomOffset={80} offset={40}>
               <S.Message size="large" floating>
                 <S.Header as="h2">Schedule an Appointment Now!</S.Header>
                 <Message.Content as="p">
