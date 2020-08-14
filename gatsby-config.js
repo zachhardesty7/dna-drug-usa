@@ -41,7 +41,7 @@ module.exports = {
       options: {
         name: "DNA Drug USA",
         short_name: "DNA Drug USA",
-        icon: "src/images/icon.png",
+        icon: "src/images/icon-fitted.svg",
         start_url: "/",
         background_color: "#f7f0eb",
         theme_color: "#a2466c",
