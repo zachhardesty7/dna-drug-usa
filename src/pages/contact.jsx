@@ -41,6 +41,7 @@ const ContactPage = ({ data: { page } }) => {
         baseline="center"
         images={[
           <GatsbyImage
+            imgStyle={{ objectPosition: "top" }}
             fluid={page.hero.background.fluid}
             alt={page.hero.background.title}
             key={page.hero.background.title}
