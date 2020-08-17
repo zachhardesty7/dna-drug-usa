@@ -87,9 +87,6 @@ const LayoutTemplate = ({ children }) => {
             fileName
             contentType
           }
-          # fixed(width: 150) {
-          #   ...GatsbyContentfulFixed_tracedSVG
-          # }
         }
       }
     }
@@ -150,28 +147,20 @@ const LayoutTemplate = ({ children }) => {
         <GlobalStyle />
 
         <div>
-          <Navigation>
-            <Navigation.Left>
-              <Navigation.Logo as={Link} link="/" logoSize="large">
-                {/* <GatsbyImage
-                  fixed={contentfulNavigationBar.logo?.fixed}
-                  alt="logo"
-                /> */}
-                <img src={contentfulNavigationBar.logo?.svg.url} alt="logo" />
-              </Navigation.Logo>
-            </Navigation.Left>
-            <Navigation.Right>
-              {contentfulNavigationBar.items.map((page) => (
-                <Navigation.Item
-                  key={navLinksMap[page]}
-                  as={Link}
-                  link={`/${navLinksMap[page]}`}
-                  activeClassName="active"
-                >
-                  {page}
-                </Navigation.Item>
-              ))}
-            </Navigation.Right>
+          <Navigation fullWidth justify="start">
+            <Navigation.Logo as={Link} link="/" logoSize="large">
+              <img src={contentfulNavigationBar.logo?.svg.url} alt="logo" />
+            </Navigation.Logo>
+            {contentfulNavigationBar.items.map((page) => (
+              <Navigation.Item
+                key={navLinksMap[page]}
+                as={Link}
+                link={`/${navLinksMap[page]}`}
+                activeClassName="active"
+              >
+                {page}
+              </Navigation.Item>
+            ))}
           </Navigation>
           {/* nest in div to enable block display */}
           <div>{children}</div>
