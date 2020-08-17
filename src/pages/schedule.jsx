@@ -201,6 +201,16 @@ const SchedulePage = ({ data: { page } }) => {
                 items={page.services.map((service) => ({ service }))}
                 render={({ data: { service } }) => (
                   <Form.Checkbox
+                    css={`
+                      .ui.checkbox {
+                        line-height: 1.25em;
+
+                        label::before {
+                          top: 50%;
+                          transform: translateY(-50%);
+                        }
+                      }
+                    `}
                     label={service}
                     key={service}
                     id={service}
