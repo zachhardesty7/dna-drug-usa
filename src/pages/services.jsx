@@ -120,7 +120,7 @@ const ServicesPage = ({ data: { page } }) => {
               <S.Message size="large" floating>
                 <S.Header as="h2">Schedule an Appointment Now!</S.Header>
                 <Message.Content as="p">
-                  Fill out some quick information amd let us know what tests
+                  Fill out some quick information and let us know what tests
                   you're interested in and we'll get an appointment set up for
                   you as soon as possible.
                 </Message.Content>

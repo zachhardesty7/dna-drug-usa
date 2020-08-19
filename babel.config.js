@@ -5,7 +5,7 @@ module.exports = {
     [
       "@quickbaseoss/babel-plugin-styled-components-css-namespace",
       {
-        cssNamespace: ".root.root.root",
+        cssNamespace: "#top#top#top",
       },
     ],
     "babel-plugin-styled-components",

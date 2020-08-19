@@ -10,6 +10,7 @@ import {
   Navigation,
   getColor,
   getHoverColor,
+  margin,
 } from "semantic-styled-ui"
 
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components"
@@ -63,16 +64,29 @@ body {
 // styled-components namespace
 const S = {}
 
-S.NavLogo = styled.img`
-  max-width: 12em;
+S.NavigationLogo = styled(Navigation.Logo)`
+  @media only screen and (max-width: 1326px) {
+    width: 100%;
+    a {
+      border-bottom: none;
+    }
+    img {
+      margin: auto;
+    }
+  }
 `
 
 S.Link = styled.a`
-  margin-left: 1em;
-  margin-right: 1em;
+  ${margin("horizontal")("0.5em")};
   text-decoration: underline;
   ${getColor("light")};
   ${getHoverColor("white")};
+`
+
+S.Navigation = styled(Navigation)`
+  @media only screen and (max-width: 1326px) {
+    justify-content: center;
+  }
 `
 
 const LayoutTemplate = ({ children }) => {
@@ -147,10 +161,10 @@ const LayoutTemplate = ({ children }) => {
         <GlobalStyle />
 
         <div>
-          <Navigation fullWidth justify="start">
-            <Navigation.Logo as={Link} link="/" logoSize="large">
+          <S.Navigation fullWidth justify="start">
+            <S.NavigationLogo forwardedAs={Link} link="/" logoSize="large">
               <img src={contentfulNavigationBar.logo?.svg.url} alt="logo" />
-            </Navigation.Logo>
+            </S.NavigationLogo>
             {contentfulNavigationBar.items.map((page) => (
               <Navigation.Item
                 key={navLinksMap[page]}
@@ -161,7 +175,7 @@ const LayoutTemplate = ({ children }) => {
                 {page}
               </Navigation.Item>
             ))}
-          </Navigation>
+          </S.Navigation>
           {/* nest in div to enable block display */}
           <div>{children}</div>
           <Footer inverted>
@@ -171,7 +185,7 @@ const LayoutTemplate = ({ children }) => {
               developerName="Zach Hardesty"
               developerLink="https://zachhardesty.com"
             />
-            <Flexbox justify="end">
+            <Flexbox>
               <S.Link as={Link} light to="/contact">
                 Contact Us!
               </S.Link>

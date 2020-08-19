@@ -42,10 +42,11 @@ const LandingPage = ({ data: { page } }) => (
     </Hero>
     <main>
       <PageSegment>
-        <Title>{page.aboutTitle}</Title>
+        <Title as="h2">{page.aboutTitle}</Title>
         <Blurbs>
           {page.aboutSection.map((item) => (
             <Blurbs.Item
+              as="h3"
               key={item.title}
               header={item.title}
               icon={item.icon && <Icon name={item.icon} size="huge" />}
@@ -57,10 +58,11 @@ const LandingPage = ({ data: { page } }) => (
       </PageSegment>
       <Divider />
       <PageSegment>
-        <Title>{page.aboutTitle}</Title>
+        <Title as="h2">{page.purposesTitle}</Title>
         <Blurbs>
           {page.purposesSection.map((item) => (
             <Blurbs.Item
+              as="h3"
               key={item.title}
               header={item.title}
               icon={item.icon && <Icon name={item.icon} size="huge" />}
