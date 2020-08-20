@@ -37,7 +37,10 @@ body {
   font-weight: 400;
 }
 
-.ui.header, .ui.message .header {
+.ui.header {
+  font-weight: 400;
+}
+.ui.message .header {
   font-weight: 500;
 }
 `
