@@ -13,6 +13,7 @@ import {
   margin,
 } from "semantic-styled-ui"
 import styled from "styled-components"
+import { Helmet } from "react-helmet"
 
 const MAX_RATING = 5
 const COMING_SOON = true
@@ -83,6 +84,9 @@ const ReviewsPage = ({ data: { page } }) => {
   }, [])
   return (
     <PageSegment>
+      <Helmet>
+        <title>{page.title}</title>
+      </Helmet>
       <>
         <Title>{page.title}</Title>
         {COMING_SOON && ready && (

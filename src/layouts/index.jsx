@@ -99,50 +99,39 @@ const LayoutTemplate = ({ children }) => {
   return (
     <ThemeProvider theme={{ ...defaultColors }}>
       <div id="top" className="root">
-        <Helmet defaultTitle="DNA Drug USA" titleTemplate="DNA Drug USA - %s">
+        <Helmet
+          defaultTitle="DNA & Drug USA"
+          titleTemplate="%s — DNA & Drug USA"
+          defer={false}
+        >
           <meta charSet="utf-8" />
           <html lang="en" />
           <meta
             name="Description"
             content={
               "Progressive Web App to advertise the services of " +
-              "DNA Drug USA and contact them on listings"
+              "DNA & Drug USA"
             }
           />
-          {/* <meta name='keywords' content='Real Estate, Development, Construction, Property'/> */}
+          <meta
+            name="keywords"
+            content="DNA Test, Drugs, Lab Work, Paternity Test, Maternity"
+          />
           <meta name="author" content="Horatio Villarreal" />
-          <meta itemProp="name" content="DNA Drug USA" />
-          {/* <meta itemProp='url' content='https://theconnectdoor.com/' /> */}
+          <meta itemProp="name" content="DNA & Drug USA" />
+          <meta itemProp="url" content="https://dnadrugusa.com/" />
           {/* <meta itemProp='telephone' content='469.560.3010' /> */}
-          {/* <meta itemProp='email' content='info@gulfcorpusa.com' /> */}
+          <meta itemProp="email" content="tests@dnadrugusa.com" />
         </Helmet>
 
-        {/* <link
-          href="https://fonts.googleapis.com/css2?family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-          rel="stylesheet"
-        /> */}
-
         <link
-          href="https://fonts.googleapis.com/css2?family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap"
           rel="stylesheet"
         />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap"
-          rel="stylesheet"
-        />
-        {/* <link
-          href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@300;400;600;700;900&display=swap"
-          rel="stylesheet"
-        /> */}
-        {/* <link
-          href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700&display=swap"
-          rel="stylesheet"
-        /> */}
         <link
           href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;700&display=swap"
           rel="stylesheet"
         />
-
         <link
           href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700&display=swap"
           rel="stylesheet"

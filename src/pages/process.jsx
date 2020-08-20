@@ -1,10 +1,14 @@
 import { graphql } from "gatsby"
 import React from "react"
 import { Blurbs, Icon, PageSegment, Title } from "semantic-styled-ui"
+import { Helmet } from "react-helmet"
 
 const ProcessPage = ({ data: { page } }) => {
   return (
     <PageSegment>
+      <Helmet>
+        <title>{page.title}</title>
+      </Helmet>
       <>
         <Title>{page.title}</Title>
         <Blurbs vertical padded={false}>

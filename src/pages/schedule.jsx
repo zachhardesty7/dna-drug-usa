@@ -14,6 +14,7 @@ import {
   media,
 } from "semantic-styled-ui"
 import styled from "styled-components"
+import { Helmet } from "react-helmet"
 
 const S = {} // styled-components namespace
 
@@ -112,6 +113,9 @@ const SchedulePage = ({ data: { page } }) => {
 
   return (
     <PageSegment>
+      <Helmet>
+        <title>{page.title}</title>
+      </Helmet>
       <>
         <Title>{page.title}</Title>
         <Grid doubling stackable reversed="mobile">

@@ -22,6 +22,7 @@ import {
 } from "semantic-styled-ui"
 
 import styled from "styled-components"
+import { Helmet } from "react-helmet"
 
 const S = {}
 
@@ -67,6 +68,9 @@ const ServicesPage = ({ data: { page } }) => {
   const [expandedService, setExpandedService] = React.useState()
   return (
     <PageSegment>
+      <Helmet>
+        <title>{page.title}</title>
+      </Helmet>
       <>
         <Title as="h1">{page.title}</Title>
         <Grid stackable doubling reversed="mobile">

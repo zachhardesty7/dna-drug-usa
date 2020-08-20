@@ -15,6 +15,7 @@ import {
   spacingMap,
 } from "semantic-styled-ui"
 import styled from "styled-components"
+import { Helmet } from "react-helmet"
 
 const S = {}
 S.Hero = styled(Hero)`
@@ -41,6 +42,9 @@ S.StatisticValue = styled(Statistic.Value)`
 const ContactPage = ({ data: { page } }) => {
   return (
     <>
+      <Helmet>
+        <title>Contact Us</title>
+      </Helmet>
       <S.Hero
         overlay="darkest"
         size="compact"

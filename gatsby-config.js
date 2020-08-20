@@ -23,7 +23,8 @@ if (!contentfulConfig.spaceId || !contentfulConfig.accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: "DNA Drug USA",
+    siteUrl: `https://dnadrugusa.com`,
+    title: "DNA & Drug USA",
   },
   pathPrefix: "/",
   plugins: [
@@ -39,15 +40,23 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        name: "DNA Drug USA",
-        short_name: "DNA Drug USA",
+        name: "DNA & Drug USA",
+        short_name: "DNA & Drug USA",
         icon: "src/images/icon-fitted.svg",
         start_url: "/",
-        background_color: "#f7f0eb",
-        theme_color: "#a2466c",
+        background_color: "#f3f4f5",
+        theme_color: "#3b5998",
         display: "standalone",
+        cache_busting_mode: "none",
       },
     },
-    "gatsby-plugin-offline",
+    {
+      resolve: "gatsby-plugin-offline",
+      options: {
+        workboxConfig: {
+          globPatterns: ["**/icon-path*"],
+        },
+      },
+    },
   ],
 }
