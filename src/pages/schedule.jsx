@@ -1,7 +1,7 @@
+import { graphql } from "gatsby"
+import { Masonry } from "masonic"
 import React from "react"
-import styled from "styled-components"
 import {
-  Container,
   Form,
   Grid,
   Icon,
@@ -11,10 +11,9 @@ import {
   Title,
   Transition,
   encode,
+  media,
 } from "semantic-styled-ui"
-
-import { Masonry } from "masonic"
-import { graphql } from "gatsby"
+import styled from "styled-components"
 
 const S = {} // styled-components namespace
 
@@ -38,6 +37,23 @@ S.Step = styled(Step)`
 
       return null
     }};
+  }
+
+  @media ${media.mobile} {
+    &&&:after {
+      display: none;
+    }
+    &.active {
+      background: #ffffff;
+    }
+  }
+`
+
+S.FormGroup = styled(Form.Group)`
+  @media ${media.mobile} {
+    .field {
+      margin: 0 0 1em;
+    }
   }
 `
 
@@ -92,14 +108,13 @@ const SchedulePage = ({ data: { page } }) => {
 
   const handleChangeArea = (_, { value }) => {
     setTextArea(value)
-    console.log("AL: value", value)
   }
 
   return (
     <PageSegment>
-      <Container>
+      <>
         <Title>{page.title}</Title>
-        <Grid>
+        <Grid doubling stackable reversed="mobile">
           <Grid.Column width={10}>
             <Form
               // name={name}
@@ -122,7 +137,7 @@ const SchedulePage = ({ data: { page } }) => {
                 onChange={handleChange}
                 value={textInputs.name}
               />
-              <Form.Group widths="equal">
+              <S.FormGroup widths="equal">
                 <Form.Input
                   name="email"
                   type="email"
@@ -143,7 +158,7 @@ const SchedulePage = ({ data: { page } }) => {
                   onChange={handleChange}
                   value={textInputs.phone}
                 />
-              </Form.Group>
+              </S.FormGroup>
               <Form.Input
                 name="street"
                 error={error}
@@ -153,7 +168,7 @@ const SchedulePage = ({ data: { page } }) => {
                 onChange={handleChange}
                 value={textInputs.street}
               />
-              <Form.Group>
+              <S.FormGroup>
                 <Form.Input
                   name="city"
                   error={error}
@@ -185,7 +200,7 @@ const SchedulePage = ({ data: { page } }) => {
                   onChange={handleChange}
                   value={textInputs.zip}
                 />
-              </Form.Group>
+              </S.FormGroup>
               {/* MARK: services */}
               <Form.Field>
                 {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
@@ -225,7 +240,7 @@ const SchedulePage = ({ data: { page } }) => {
                 )}
               />
 
-              <Form.Group widths="equal">
+              <S.FormGroup widths="equal">
                 <Form.Input
                   name="date"
                   type="date"
@@ -244,7 +259,7 @@ const SchedulePage = ({ data: { page } }) => {
                   onChange={(_, { value }) => setPreferredTime(value)}
                   value={preferredTime}
                 />
-              </Form.Group>
+              </S.FormGroup>
               <Form.TextArea
                 name="comments"
                 error={error && textArea === ""}
@@ -295,7 +310,7 @@ const SchedulePage = ({ data: { page } }) => {
             </Step.Group>
           </Grid.Column>
         </Grid>
-      </Container>
+      </>
     </PageSegment>
   )
 }

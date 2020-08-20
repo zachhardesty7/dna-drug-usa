@@ -40,18 +40,6 @@ body {
 .ui.header, .ui.message .header {
   font-weight: 500;
 }
-/* .ui.header, .ui.message .header, .ui.form .field > label {
-  font-weight: 500;
-}
-
-.ui.form .field > label {
-  font-weight: 600;
-} */
-
-/* a {
-  color: unset !important;
-} */
-
 `
 
 /**
@@ -61,8 +49,7 @@ body {
  * abel
  */
 
-// styled-components namespace
-const S = {}
+const S = {} // styled-components namespace
 
 S.NavigationLogo = styled(Navigation.Logo)`
   @media only screen and (max-width: 1326px) {

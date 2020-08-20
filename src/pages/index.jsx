@@ -19,7 +19,6 @@ const LandingPage = ({ data: { page } }) => (
       baseline="bottom"
       justify="end"
       boxed
-      // size="relaxed"
       images={[
         <GatsbyImage
           fluid={page.hero.background.fluid}

@@ -1,6 +1,8 @@
+import { graphql } from "gatsby"
+import GatsbyImage from "gatsby-image"
+import { Masonry } from "masonic"
 import React from "react"
 import {
-  Container,
   Divider,
   Grid,
   Header,
@@ -9,12 +11,10 @@ import {
   PageSegment,
   Statistic,
   margin,
+  media,
   spacingMap,
 } from "semantic-styled-ui"
-import styled, { css } from "styled-components"
-import { Masonry } from "masonic"
-import { graphql } from "gatsby"
-import GatsbyImage from "gatsby-image"
+import styled from "styled-components"
 
 const S = {}
 S.Hero = styled(Hero)`
@@ -30,6 +30,12 @@ S.Statistic = styled(Statistic)`
 S.StatisticLabel = styled(Statistic.Label)`
   ${margin("bottom")("0")};
   text-align: left;
+`
+
+S.StatisticValue = styled(Statistic.Value)`
+  @media ${media.portable} {
+    font-size: 1.1em;
+  }
 `
 
 const ContactPage = ({ data: { page } }) => {
@@ -52,8 +58,8 @@ const ContactPage = ({ data: { page } }) => {
       </S.Hero>
 
       <PageSegment vertical basic>
-        <Container>
-          <Grid columns="equal" relaxed="very">
+        <>
+          <Grid columns="equal" relaxed="very" stackable doubling>
             <Grid.Column>
               <Header as="h2">{page.title}</Header>
               <p>{page.content.content}</p>
@@ -69,9 +75,9 @@ const ContactPage = ({ data: { page } }) => {
                 </S.Statistic>
                 <S.Statistic size="mini">
                   <S.StatisticLabel forwardedAs="h3">email</S.StatisticLabel>
-                  <Statistic.Value>
+                  <S.StatisticValue>
                     <Link link={`mailto:${page.email}`}>{page.email}</Link>
-                  </Statistic.Value>
+                  </S.StatisticValue>
                 </S.Statistic>
               </div>
             </Grid.Column>
@@ -80,7 +86,7 @@ const ContactPage = ({ data: { page } }) => {
               <Divider />
               {/* REVIEW: overkill? */}
               <Masonry
-                columnCount={3}
+                columnWidth={125}
                 columnGutter={25}
                 items={page.locations}
                 tabIndex={null} // prevent focus box from appearing
@@ -88,7 +94,7 @@ const ContactPage = ({ data: { page } }) => {
                   <div>
                     <Header
                       as="h3"
-                      css={css`
+                      css={`
                         margin-bottom: 0.25em;
                       `}
                     >
@@ -97,8 +103,10 @@ const ContactPage = ({ data: { page } }) => {
                     {location.places.map((place) => (
                       <li
                         key={place}
-                        css={css`
+                        css={`
                           font-size: 0.9em;
+                          line-height: 1.3em;
+                          ${margin("bottom")("0.5em")};
                         `}
                       >
                         {place}
@@ -109,7 +117,7 @@ const ContactPage = ({ data: { page } }) => {
               />
             </Grid.Column>
           </Grid>
-        </Container>
+        </>
       </PageSegment>
     </>
   )

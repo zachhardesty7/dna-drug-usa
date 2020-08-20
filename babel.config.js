@@ -1,4 +1,5 @@
 module.exports = {
+  presets: ["babel-preset-gatsby"],
   plugins: [
     // FIXME: breaks library styling
     // 'babel-plugin-transform-semantic-ui-react-style-imports',
@@ -8,6 +9,6 @@ module.exports = {
         cssNamespace: "#top#top#top",
       },
     ],
-    "babel-plugin-styled-components",
+    "styled-components",
   ],
 }

@@ -3,10 +3,8 @@ import React from "react"
 import {
   Accordion,
   Button,
-  Container,
   Divider,
   Grid,
-  Header,
   Icon,
   Label,
   Link,
@@ -19,6 +17,7 @@ import {
   getColor,
   getHoverBackgroundColor,
   margin,
+  media,
   spacingMap,
 } from "semantic-styled-ui"
 
@@ -26,8 +25,11 @@ import styled from "styled-components"
 
 const S = {}
 
-S.Header = styled(Header)`
+S.Header = styled(Message.Header)`
   ${getColor("primary")};
+  @media ${media.mobile} {
+    font-size: 1.4rem !important;
+  }
 `
 
 S.Button = styled(Button)`
@@ -48,15 +50,26 @@ S.Button = styled(Button)`
 
 S.Message = styled(Message)`
   ${margin("bottom")(spacingMap.tight)};
+  /* TODO: isn't perfect */
+  @media ${media.mobile} {
+    top: unset !important;
+    bottom: unset !important;
+  }
+`
+
+S.Sticky = styled(Sticky)`
+  @media ${media.mobile} {
+    font-size: 1.1rem !important;
+  }
 `
 
 const ServicesPage = ({ data: { page } }) => {
   const [expandedService, setExpandedService] = React.useState()
   return (
     <PageSegment>
-      <Container>
+      <>
         <Title as="h1">{page.title}</Title>
-        <Grid>
+        <Grid stackable doubling reversed="mobile">
           <Grid.Column width="10">
             <Accordion styled fluid>
               {page.services.map((service, i) => {
@@ -116,7 +129,7 @@ const ServicesPage = ({ data: { page } }) => {
             </Accordion>
           </Grid.Column>
           <Grid.Column width="6">
-            <Sticky bottomOffset={80} offset={40}>
+            <S.Sticky bottomOffset={80} offset={40}>
               <S.Message size="large" floating>
                 <S.Header as="h2">Schedule an Appointment Now!</S.Header>
                 <Message.Content as="p">
@@ -132,10 +145,10 @@ const ServicesPage = ({ data: { page } }) => {
                   </S.Button>
                 </Link>
               </S.Message>
-            </Sticky>
+            </S.Sticky>
           </Grid.Column>
         </Grid>
-      </Container>
+      </>
     </PageSegment>
   )
 }

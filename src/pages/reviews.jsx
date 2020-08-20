@@ -1,7 +1,7 @@
+import { graphql } from "gatsby"
 import React from "react"
+import Avatar from "react-avatar"
 import {
-  Container,
-  Dimmer,
   Grid,
   Icon,
   Item,
@@ -12,9 +12,7 @@ import {
   Transition,
   margin,
 } from "semantic-styled-ui"
-import Avatar from "react-avatar"
 import styled from "styled-components"
-import { graphql } from "gatsby"
 
 const MAX_RATING = 5
 const COMING_SOON = true
@@ -39,7 +37,11 @@ S.ItemContent = styled(Item.Content)`
 const SKELETON_ITEM = (i) => (
   <Grid.Column key={i}>
     <Item.Group relaxed>
-      <Item>
+      <Item
+        css={`
+          align-items: center;
+        `}
+      >
         <Avatar
           size="8em"
           name={"?a".repeat(Math.ceil(Math.random() * 19 + 1))}
@@ -81,7 +83,7 @@ const ReviewsPage = ({ data: { page } }) => {
   }, [])
   return (
     <PageSegment>
-      <Container>
+      <>
         <Title>{page.title}</Title>
         {COMING_SOON && ready && (
           <Transition animation="fade down" duration={1000} transitionOnMount>
@@ -91,7 +93,7 @@ const ReviewsPage = ({ data: { page } }) => {
             </Message>
           </Transition>
         )}
-        <Grid columns="2" widths="equal" relaxed>
+        <Grid columns="2" widths="equal" doubling stackable relaxed>
           {COMING_SOON && ready ? (
             <>{new Array(4).fill(null).map((_, i) => SKELETON_ITEM(i))}</>
           ) : (
@@ -119,7 +121,7 @@ const ReviewsPage = ({ data: { page } }) => {
             ))
           )}
         </Grid>
-      </Container>
+      </>
     </PageSegment>
   )
 }

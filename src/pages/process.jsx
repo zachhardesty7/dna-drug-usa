@@ -1,11 +1,11 @@
 import { graphql } from "gatsby"
 import React from "react"
-import { Blurbs, Container, Icon, PageSegment, Title } from "semantic-styled-ui"
+import { Blurbs, Icon, PageSegment, Title } from "semantic-styled-ui"
 
 const ProcessPage = ({ data: { page } }) => {
   return (
     <PageSegment>
-      <Container>
+      <>
         <Title>{page.title}</Title>
         <Blurbs vertical padded={false}>
           {page.steps.map((item) => (
@@ -18,7 +18,7 @@ const ProcessPage = ({ data: { page } }) => {
             </Blurbs.Item>
           ))}
         </Blurbs>
-      </Container>
+      </>
     </PageSegment>
   )
 }
