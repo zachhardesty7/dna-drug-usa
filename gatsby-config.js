@@ -50,6 +50,7 @@ module.exports = {
         cache_busting_mode: "none",
       },
     },
+    "gatsby-plugin-preload-fonts",
     {
       resolve: "gatsby-plugin-offline",
       options: {

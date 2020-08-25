@@ -11,6 +11,7 @@
     "semi": false
   },
   "scripts": {
+    "preload-fonts": "LOG_LEVEL=info CI=true gatsby-preload-fonts --no-sandbox",
     "start": "gatsby develop",
     "clean": "gatsby clean",
     "build:traditional": "gatsby build",
@@ -50,6 +51,7 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^7.6.0",
     "eslint-config-hardesty": "^3.4.0",
+    "gatsby-plugin-preload-fonts": "^1.2.21",
     "gatsby-plugin-sitemap": "^2.4.11",
     "gatsby-plugin-why-did-you-render-redux": "^0.2.1",
     "netlify-cli": "^2.59.0"
