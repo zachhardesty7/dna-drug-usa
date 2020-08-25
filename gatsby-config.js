@@ -42,7 +42,7 @@ module.exports = {
       options: {
         name: "DNA & Drug USA",
         short_name: "DNA & Drug USA",
-        icon: "src/images/icon-fitted.svg",
+        icon: "src/images/icon.svg",
         start_url: "/",
         background_color: "#f3f4f5",
         theme_color: "#3b5998",
