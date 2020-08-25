@@ -15,7 +15,7 @@
     "start": "gatsby develop",
     "clean": "gatsby clean",
     "build:traditional": "gatsby build",
-    "build": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
+    "build": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build",
     "serve": "gatsby serve",
     "teardown": "scripts/reset-local-library.sh ../../../programming/repos/semantic-styled-ui",
     "setup": "scripts/use-local-library.sh ../../../programming/repos/semantic-styled-ui",

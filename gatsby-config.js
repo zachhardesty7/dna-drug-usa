@@ -42,7 +42,7 @@ module.exports = {
       options: {
         name: "DNA & Drug USA",
         short_name: "DNA & Drug USA",
-        icon: "src/images/icon.svg",
+        icon: "src/images/logo-icon.svg",
         start_url: "/",
         background_color: "#f3f4f5",
         theme_color: "#3b5998",
@@ -55,7 +55,7 @@ module.exports = {
       resolve: "gatsby-plugin-offline",
       options: {
         workboxConfig: {
-          globPatterns: ["**/icon-path*"],
+          globPatterns: ["**/logo-*"],
         },
       },
     },
