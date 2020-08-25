@@ -90,10 +90,18 @@ const ContactPage = ({ data: { page } }) => {
               <Divider />
               {/* REVIEW: overkill? */}
               <Masonry
-                columnWidth={125}
+                columnWidth={
+                  Math.max(
+                    ...page.locations
+                      .map((location) => location.places)
+                      .flatMap((place) => place.length)
+                  ) *
+                    2.55 +
+                  80
+                }
                 columnGutter={25}
                 items={page.locations}
-                tabIndex={null} // prevent focus box from appearing
+                tabIndex={null} // prevent focus outline from appearing
                 render={({ data: location }) => (
                   <div>
                     <Header
