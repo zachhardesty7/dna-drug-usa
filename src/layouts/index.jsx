@@ -26,7 +26,9 @@ h1 {
   font-family: 'IBM Plex Sans', 'Times New Roman', 'Helvetica Neue', Arial, Helvetica, sans-serif !important;
   font-weight: 400;
 }
-h2,h3,h4,h5,h6 {
+h2,h3,h4,h5,h6, .ui.header, .ui.list .list > .item .header,
+.ui.list > .item .header, .ui.steps .step .title, .ui.message .header, .ui.cards > .card > .content > .header,
+.ui.card > .content > .header, .ui.items > .item > .content > .header, .ui.accordion .title:not(.ui), .ui.modal > .header, .ui.popup > .header, .ui.search > .results .result .title, .ui.search > .results > .message .header, .ui.category.search > .results .category > .name {
   font-family: 'Heebo', 'Times New Roman', 'Helvetica Neue', Arial, Helvetica, sans-serif !important;
   font-weight: 400;
 }
@@ -37,11 +39,37 @@ body {
   font-weight: 400;
 }
 
+.ui.button, .ui.text.container, .ui.input > input, .ui.form input:not([type]),
+.ui.form input[type="date"],
+.ui.form input[type="datetime-local"],
+.ui.form input[type="email"],
+.ui.form input[type="number"],
+.ui.form input[type="password"],
+.ui.form input[type="search"],
+.ui.form input[type="tel"],
+.ui.form input[type="time"],
+.ui.form input[type="text"],
+.ui.form input[type="file"],
+.ui.form input[type="url"], .ui.menu, .ui.statistics .statistic > .value,
+.ui.statistic > .value, .ui.statistics .statistic > .label,
+.ui.statistic > .label  {
+font-family: 'Source Sans Pro', 'Times New Roman', 'Helvetica Neue', Arial, Helvetica, sans-serif !important;
+
+}
+
 .ui.header {
   font-weight: 400;
 }
 .ui.message .header {
   font-weight: 500;
+}
+
+.ui.secondary.pointing.menu .active.item {
+  font-weight: 600;
+}
+
+.ui.button {
+  font-weight: 600;
 }
 `
 
@@ -125,15 +153,15 @@ const LayoutTemplate = ({ children }) => {
         </Helmet>
 
         <link
-          href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap"
           rel="stylesheet"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&display=swap"
           rel="stylesheet"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap"
           rel="stylesheet"
         />
 
