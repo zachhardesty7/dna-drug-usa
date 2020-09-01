@@ -16,16 +16,6 @@ import styled from "styled-components"
 import { Helmet } from "react-helmet"
 
 const MAX_RATING = 5
-const COMING_SOON = true
-const SAMPLE_DATA = [
-  {
-    name: "??",
-    rating: 4,
-    content: {
-      content: "What a lovely place to visit",
-    },
-  },
-]
 
 const S = {} // styled NS
 
@@ -76,12 +66,6 @@ const SKELETON_ITEM = (i) => (
 )
 
 const ReviewsPage = ({ data: { page } }) => {
-  // eslint-disable-next-line no-param-reassign
-  if (COMING_SOON) page.reviews = SAMPLE_DATA
-  const [ready, setReady] = React.useState(false)
-  React.useLayoutEffect(() => {
-    setReady(true)
-  }, [])
   return (
     <PageSegment>
       <Helmet>
@@ -89,7 +73,7 @@ const ReviewsPage = ({ data: { page } }) => {
       </Helmet>
       <>
         <Title>{page.title}</Title>
-        {COMING_SOON && ready && (
+        {page.comingSoon && (
           <Transition animation="fade down" duration={1000} transitionOnMount>
             <Message warning compact size="large">
               <Message.Header as="h2">Coming soon!</Message.Header>
@@ -98,29 +82,35 @@ const ReviewsPage = ({ data: { page } }) => {
           </Transition>
         )}
         <Grid columns="2" widths="equal" doubling stackable relaxed>
-          {COMING_SOON && ready ? (
+          {page.comingSoon ? (
             <>{new Array(4).fill(null).map((_, i) => SKELETON_ITEM(i))}</>
           ) : (
             page?.reviews?.map?.((review) => (
               <Grid.Column key={review.name}>
-                <Item>
-                  <Avatar size="8em" name={review.name} />
-                  <S.ItemContent verticalAlign="middle">
-                    <Item.Header as="h2">{review.name}</Item.Header>
-                    <Item.Description>
-                      {review.content.content}
-                    </Item.Description>
-                    <Item.Extra>
-                      {new Array(MAX_RATING).fill(null).map((_, i) => (
-                        <Icon
-                          name="star"
-                          color={i < review.rating ? "yellow" : "grey"}
-                          key={i} // eslint-disable-line react/no-array-index-key
-                        />
-                      ))}
-                    </Item.Extra>
-                  </S.ItemContent>
-                </Item>
+                <Item.Group>
+                  <Item
+                    css={`
+                      align-items: center;
+                    `}
+                  >
+                    <Avatar size="8em" name={review.name} />
+                    <S.ItemContent verticalAlign="middle">
+                      <Item.Header as="h2">{review.name}</Item.Header>
+                      <Item.Description>
+                        {review.content.content}
+                      </Item.Description>
+                      <Item.Extra>
+                        {new Array(MAX_RATING).fill(null).map((_, i) => (
+                          <Icon
+                            name="star"
+                            color={i < review.rating ? "yellow" : "grey"}
+                            key={i} // eslint-disable-line react/no-array-index-key
+                          />
+                        ))}
+                      </Item.Extra>
+                    </S.ItemContent>
+                  </Item>
+                </Item.Group>
               </Grid.Column>
             ))
           )}
@@ -136,6 +126,7 @@ export const query = graphql`
       contentful_id: { eq: "19ol6uzi04vASujftXIfi9" }
     ) {
       title
+      comingSoon
       reviews {
         name
         rating
