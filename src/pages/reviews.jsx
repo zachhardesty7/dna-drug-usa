@@ -14,6 +14,7 @@ import {
 } from "semantic-styled-ui"
 import styled from "styled-components"
 import { Helmet } from "react-helmet"
+import { SharedFooter } from "../components/SharedFooter"
 
 const MAX_RATING = 5
 
@@ -67,56 +68,61 @@ const SKELETON_ITEM = (i) => (
 
 const ReviewsPage = ({ data: { page } }) => {
   return (
-    <PageSegment>
-      <Helmet>
-        <title>{page.title}</title>
-      </Helmet>
-      <>
-        <Title>{page.title}</Title>
-        {page.comingSoon && (
-          <Transition animation="fade down" duration={1000} transitionOnMount>
-            <Message warning compact size="large">
-              <Message.Header as="h2">Coming soon!</Message.Header>
-              <p>Please check back later to hear from some of our customers.</p>
-            </Message>
-          </Transition>
-        )}
-        <Grid columns="2" widths="equal" doubling stackable relaxed>
-          {page.comingSoon ? (
-            <>{new Array(4).fill(null).map((_, i) => SKELETON_ITEM(i))}</>
-          ) : (
-            page?.reviews?.map?.((review) => (
-              <Grid.Column key={review.name}>
-                <Item.Group>
-                  <Item
-                    css={`
-                      align-items: center;
-                    `}
-                  >
-                    <Avatar size="8em" name={review.name} />
-                    <S.ItemContent verticalAlign="middle">
-                      <Item.Header as="h2">{review.name}</Item.Header>
-                      <Item.Description>
-                        {review.content.content}
-                      </Item.Description>
-                      <Item.Extra>
-                        {new Array(MAX_RATING).fill(null).map((_, i) => (
-                          <Icon
-                            name="star"
-                            color={i < review.rating ? "yellow" : "grey"}
-                            key={i} // eslint-disable-line react/no-array-index-key
-                          />
-                        ))}
-                      </Item.Extra>
-                    </S.ItemContent>
-                  </Item>
-                </Item.Group>
-              </Grid.Column>
-            ))
+    <>
+      <PageSegment>
+        <Helmet>
+          <title>{page.title}</title>
+        </Helmet>
+        <>
+          <Title>{page.title}</Title>
+          {page.comingSoon && (
+            <Transition animation="fade down" duration={1000} transitionOnMount>
+              <Message warning compact size="large">
+                <Message.Header as="h2">Coming soon!</Message.Header>
+                <p>
+                  Please check back later to hear from some of our customers.
+                </p>
+              </Message>
+            </Transition>
           )}
-        </Grid>
-      </>
-    </PageSegment>
+          <Grid columns="2" widths="equal" doubling stackable relaxed>
+            {page.comingSoon ? (
+              <>{new Array(4).fill(null).map((_, i) => SKELETON_ITEM(i))}</>
+            ) : (
+              page?.reviews?.map?.((review) => (
+                <Grid.Column key={review.name}>
+                  <Item.Group>
+                    <Item
+                      css={`
+                        align-items: center;
+                      `}
+                    >
+                      <Avatar size="8em" name={review.name} />
+                      <S.ItemContent verticalAlign="middle">
+                        <Item.Header as="h2">{review.name}</Item.Header>
+                        <Item.Description>
+                          {review.content.content}
+                        </Item.Description>
+                        <Item.Extra>
+                          {new Array(MAX_RATING).fill(null).map((_, i) => (
+                            <Icon
+                              name="star"
+                              color={i < review.rating ? "yellow" : "grey"}
+                              key={i} // eslint-disable-line react/no-array-index-key
+                            />
+                          ))}
+                        </Item.Extra>
+                      </S.ItemContent>
+                    </Item>
+                  </Item.Group>
+                </Grid.Column>
+              ))
+            )}
+          </Grid>
+        </>
+      </PageSegment>
+      <SharedFooter />
+    </>
   )
 }
 

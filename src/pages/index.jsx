@@ -11,6 +11,7 @@ import {
   Title,
 } from "semantic-styled-ui"
 import { defaultColors } from "../constants"
+import { SharedFooter } from "../components/SharedFooter"
 
 const LandingPage = ({ data: { page } }) => (
   <>
@@ -70,6 +71,7 @@ const LandingPage = ({ data: { page } }) => (
         </Blurbs>
       </PageSegment>
     </main>
+    <SharedFooter />
   </>
 )
 

@@ -16,6 +16,7 @@ import {
 } from "semantic-styled-ui"
 import styled from "styled-components"
 import { Helmet } from "react-helmet"
+import { SharedFooter } from "../components/SharedFooter"
 
 const S = {}
 S.Hero = styled(Hero)`
@@ -131,6 +132,7 @@ const ContactPage = ({ data: { page } }) => {
           </Grid>
         </>
       </PageSegment>
+      <SharedFooter />
     </>
   )
 }

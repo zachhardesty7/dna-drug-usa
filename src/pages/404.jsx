@@ -1,6 +1,7 @@
 import React from "react"
 import { Section404 } from "semantic-styled-ui"
 import { Helmet } from "react-helmet"
+import { SharedFooter } from "../components/SharedFooter"
 
 const Page = () => (
   <>
@@ -8,6 +9,7 @@ const Page = () => (
       <title>404 Error - Missing Page</title>
     </Helmet>
     <Section404 />
+    <SharedFooter />
   </>
 )
 

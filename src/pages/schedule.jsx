@@ -15,6 +15,7 @@ import {
 } from "semantic-styled-ui"
 import styled from "styled-components"
 import { Helmet } from "react-helmet"
+import { SharedFooter } from "../components/SharedFooter"
 
 const S = {} // styled-components namespace
 
@@ -112,210 +113,215 @@ const SchedulePage = ({ data: { page } }) => {
   }
 
   return (
-    <PageSegment>
-      <Helmet>
-        <title>{page.title}</title>
-      </Helmet>
-      <>
-        <Title>{page.title}</Title>
-        <Grid doubling stackable reversed="mobile">
-          <Grid.Column width={10}>
-            <Form
-              // name={name}
-              onSubmit={handleSubmit}
-              data-netlify="true"
-              data-netlify-honeypot="bot-field"
-              // success={success}
-              // error={error}
-            >
-              {/* limit bot responses with Netlify */}
-              <input type="hidden" name="bot-field" />
-              <input type="hidden" name="form-name" value="schedule" />
-
-              <Form.Input
-                name="name"
-                error={error}
-                fluid
-                placeholder="Full Name"
-                label="Full Name"
-                onChange={handleChange}
-                value={textInputs.name}
-              />
-              <S.FormGroup widths="equal">
-                <Form.Input
-                  name="email"
-                  type="email"
-                  error={error}
-                  fluid
-                  placeholder="Email"
-                  label="Email"
-                  onChange={handleChange}
-                  value={textInputs.email}
-                />
-                <Form.Input
-                  name="phone"
-                  type="tel"
-                  error={error}
-                  fluid
-                  placeholder="Phone Number"
-                  label="Phone Number"
-                  onChange={handleChange}
-                  value={textInputs.phone}
-                />
-              </S.FormGroup>
-              <Form.Input
-                name="street"
-                error={error}
-                fluid
-                placeholder="Address"
-                label="Address"
-                onChange={handleChange}
-                value={textInputs.street}
-              />
-              <S.FormGroup>
-                <Form.Input
-                  name="city"
-                  error={error}
-                  fluid
-                  width={8}
-                  placeholder="City"
-                  label="City"
-                  onChange={handleChange}
-                  value={textInputs.city}
-                />
+    <>
+      <PageSegment>
+        <Helmet>
+          <title>{page.title}</title>
+        </Helmet>
+        <>
+          <Title>{page.title}</Title>
+          <Grid doubling stackable reversed="mobile">
+            <Grid.Column width={10}>
+              <Form
+                // name={name}
+                onSubmit={handleSubmit}
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
+                // success={success}
+                // error={error}
+              >
+                {/* limit bot responses with Netlify */}
+                <input type="hidden" name="bot-field" />
+                <input type="hidden" name="form-name" value="schedule" />
 
                 <Form.Input
-                  name="state"
+                  name="name"
                   error={error}
                   fluid
-                  width={4}
-                  placeholder="State"
-                  label="State"
+                  placeholder="Full Name"
+                  label="Full Name"
                   onChange={handleChange}
-                  value={textInputs.state}
+                  value={textInputs.name}
                 />
-                <Form.Input
-                  name="zip"
-                  error={error}
-                  fluid
-                  width={4}
-                  placeholder="Zip Code"
-                  label="Zip Code"
-                  onChange={handleChange}
-                  value={textInputs.zip}
-                />
-              </S.FormGroup>
-              {/* MARK: services */}
-              <Form.Field>
-                {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-                <label htmlFor="services">
-                  Interested Services / Tests (check all that apply)
-                </label>
-              </Form.Field>
-              <Masonry
-                id="services"
-                columnWidth={175} // TESTING: vs columnCount={4}
-                columnGutter={12}
-                tabIndex={null} // hide focus border
-                items={page.services.map((service) => ({ service }))}
-                render={({ data: { service } }) => (
-                  <Form.Checkbox
-                    css={`
-                      .ui.checkbox {
-                        line-height: 1.25em;
-
-                        label::before {
-                          top: 50%;
-                          transform: translateY(-50%);
-                        }
-                      }
-                    `}
-                    label={service}
-                    key={service}
-                    id={service}
-                    checked={selectedServices[service]}
-                    onChange={(_, { checked }) =>
-                      setSelectedServices({
-                        ...selectedServices,
-                        [service]: checked,
-                      })
-                    }
+                <S.FormGroup widths="equal">
+                  <Form.Input
+                    name="email"
+                    type="email"
+                    error={error}
+                    fluid
+                    placeholder="Email"
+                    label="Email"
+                    onChange={handleChange}
+                    value={textInputs.email}
                   />
-                )}
-              />
-
-              <S.FormGroup widths="equal">
+                  <Form.Input
+                    name="phone"
+                    type="tel"
+                    error={error}
+                    fluid
+                    placeholder="Phone Number"
+                    label="Phone Number"
+                    onChange={handleChange}
+                    value={textInputs.phone}
+                  />
+                </S.FormGroup>
                 <Form.Input
-                  name="date"
-                  type="date"
+                  name="street"
                   error={error}
                   fluid
-                  label="Preferred Date"
-                  onChange={(_, { value }) => setPreferredDate(value)}
-                  value={preferredDate}
+                  placeholder="Address"
+                  label="Address"
+                  onChange={handleChange}
+                  value={textInputs.street}
                 />
-                <Form.Input
-                  name="time"
-                  type="time"
-                  error={error}
-                  fluid
-                  label="Preferred Time"
-                  onChange={(_, { value }) => setPreferredTime(value)}
-                  value={preferredTime}
-                />
-              </S.FormGroup>
-              <Form.TextArea
-                name="comments"
-                error={error && textArea === ""}
-                placeholder="Have anything else to let us know?"
-                label="Comments"
-                style={{ minHeight: 125 }}
-                onChange={handleChangeArea}
-                value={textArea}
-              />
+                <S.FormGroup>
+                  <Form.Input
+                    name="city"
+                    error={error}
+                    fluid
+                    width={8}
+                    placeholder="City"
+                    label="City"
+                    onChange={handleChange}
+                    value={textInputs.city}
+                  />
 
-              <Transition.Group animation="fade down" duration={500}>
-                {success && (
-                  <S.Message icon success>
-                    <Icon name="check" aria-label="success" />
-                    <Message.Content>
-                      <Message.Header>Form Submitted</Message.Header>
-                      You'll hear back from us shortly!
-                    </Message.Content>
-                  </S.Message>
-                )}
-                {error && (
-                  <S.Message icon error>
-                    <Icon name="exclamation" aria-label="failure" />
-                    <Message.Content>
-                      <Message.Header>Error</Message.Header>
-                      Please fill out all fields!
-                    </Message.Content>
-                  </S.Message>
-                )}
-              </Transition.Group>
-              <Form.Button type="submit">Submit</Form.Button>
-            </Form>
-          </Grid.Column>
-          {/* #region - steps */}
-          <Grid.Column width={6}>
-            <Step.Group vertical ordered>
-              {page.steps.map((step, i) => (
-                <S.Step
-                  active={i === 0}
-                  key={step.content.content}
-                  $notch="left"
-                >
-                  <Step.Content>
-                    <Step.Description>{step.content.content}</Step.Description>
-                  </Step.Content>
-                </S.Step>
-              ))}
-            </Step.Group>
-          </Grid.Column>
-        </Grid>
-      </>
-    </PageSegment>
+                  <Form.Input
+                    name="state"
+                    error={error}
+                    fluid
+                    width={4}
+                    placeholder="State"
+                    label="State"
+                    onChange={handleChange}
+                    value={textInputs.state}
+                  />
+                  <Form.Input
+                    name="zip"
+                    error={error}
+                    fluid
+                    width={4}
+                    placeholder="Zip Code"
+                    label="Zip Code"
+                    onChange={handleChange}
+                    value={textInputs.zip}
+                  />
+                </S.FormGroup>
+                {/* MARK: services */}
+                <Form.Field>
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+                  <label htmlFor="services">
+                    Interested Services / Tests (check all that apply)
+                  </label>
+                </Form.Field>
+                <Masonry
+                  id="services"
+                  columnWidth={175} // TESTING: vs columnCount={4}
+                  columnGutter={12}
+                  tabIndex={null} // hide focus border
+                  items={page.services.map((service) => ({ service }))}
+                  render={({ data: { service } }) => (
+                    <Form.Checkbox
+                      css={`
+                        .ui.checkbox {
+                          line-height: 1.25em;
+
+                          label::before {
+                            top: 50%;
+                            transform: translateY(-50%);
+                          }
+                        }
+                      `}
+                      label={service}
+                      key={service}
+                      id={service}
+                      checked={selectedServices[service]}
+                      onChange={(_, { checked }) =>
+                        setSelectedServices({
+                          ...selectedServices,
+                          [service]: checked,
+                        })
+                      }
+                    />
+                  )}
+                />
+
+                <S.FormGroup widths="equal">
+                  <Form.Input
+                    name="date"
+                    type="date"
+                    error={error}
+                    fluid
+                    label="Preferred Date"
+                    onChange={(_, { value }) => setPreferredDate(value)}
+                    value={preferredDate}
+                  />
+                  <Form.Input
+                    name="time"
+                    type="time"
+                    error={error}
+                    fluid
+                    label="Preferred Time"
+                    onChange={(_, { value }) => setPreferredTime(value)}
+                    value={preferredTime}
+                  />
+                </S.FormGroup>
+                <Form.TextArea
+                  name="comments"
+                  error={error && textArea === ""}
+                  placeholder="Have anything else to let us know?"
+                  label="Comments"
+                  style={{ minHeight: 125 }}
+                  onChange={handleChangeArea}
+                  value={textArea}
+                />
+
+                <Transition.Group animation="fade down" duration={500}>
+                  {success && (
+                    <S.Message icon success>
+                      <Icon name="check" aria-label="success" />
+                      <Message.Content>
+                        <Message.Header>Form Submitted</Message.Header>
+                        You'll hear back from us shortly!
+                      </Message.Content>
+                    </S.Message>
+                  )}
+                  {error && (
+                    <S.Message icon error>
+                      <Icon name="exclamation" aria-label="failure" />
+                      <Message.Content>
+                        <Message.Header>Error</Message.Header>
+                        Please fill out all fields!
+                      </Message.Content>
+                    </S.Message>
+                  )}
+                </Transition.Group>
+                <Form.Button type="submit">Submit</Form.Button>
+              </Form>
+            </Grid.Column>
+            {/* #region - steps */}
+            <Grid.Column width={6}>
+              <Step.Group vertical ordered>
+                {page.steps.map((step, i) => (
+                  <S.Step
+                    active={i === 0}
+                    key={step.content.content}
+                    $notch="left"
+                  >
+                    <Step.Content>
+                      <Step.Description>
+                        {step.content.content}
+                      </Step.Description>
+                    </Step.Content>
+                  </S.Step>
+                ))}
+              </Step.Group>
+            </Grid.Column>
+          </Grid>
+        </>
+      </PageSegment>
+      <SharedFooter />
+    </>
   )
 }
 

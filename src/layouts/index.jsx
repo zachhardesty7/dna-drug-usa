@@ -3,15 +3,7 @@ import { Helmet } from "react-helmet"
 
 import { Link, graphql, useStaticQuery } from "gatsby"
 
-import {
-  Flexbox,
-  Footer,
-  IconLink,
-  Navigation,
-  getColor,
-  getHoverColor,
-  margin,
-} from "semantic-styled-ui"
+import { Navigation } from "semantic-styled-ui"
 
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components"
 import { defaultColors, navLinksMap } from "../constants"
@@ -92,13 +84,6 @@ S.NavigationLogo = styled(Navigation.Logo)`
       margin: auto;
     }
   }
-`
-
-S.Link = styled.a`
-  ${margin("horizontal")("0.5em")};
-  text-decoration: underline;
-  ${getColor("light")};
-  ${getHoverColor("white")};
 `
 
 S.Navigation = styled(Navigation)`
@@ -185,29 +170,6 @@ const LayoutTemplate = ({ children }) => {
           </S.Navigation>
           {/* nest in div to enable block display */}
           <div>{children}</div>
-          <Footer inverted>
-            <Footer.Content
-              copyright="DNA & Drug USA"
-              date="July 2020"
-              developerName="Zach Hardesty"
-              developerLink="https://zachhardesty.com"
-            />
-            <Flexbox>
-              <S.Link as={Link} light to="/contact">
-                Contact Us!
-              </S.Link>
-              <IconLink.Group light justify="end">
-                <IconLink
-                  name="facebook"
-                  link="https://www.facebook.com/DNA-Drug-USA-111447063958381/"
-                />
-                <IconLink
-                  name="linkedin"
-                  link="https://www.linkedin.com/in/horacio-v-5355231b1/"
-                />
-              </IconLink.Group>
-            </Flexbox>
-          </Footer>
         </div>
       </div>
     </ThemeProvider>
