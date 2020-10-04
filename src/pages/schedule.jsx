@@ -226,7 +226,9 @@ const SchedulePage = ({ data: { page } }) => {
                         .ui.checkbox {
                           line-height: 1.25em;
 
-                          label::before {
+                          label::before,
+                          label::after {
+                            line-height: 1em;
                             top: 50%;
                             transform: translateY(-50%);
                           }

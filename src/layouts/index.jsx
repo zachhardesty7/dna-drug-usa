@@ -46,7 +46,6 @@ body {
 .ui.statistic > .value, .ui.statistics .statistic > .label,
 .ui.statistic > .label  {
 font-family: 'Source Sans Pro', 'Times New Roman', 'Helvetica Neue', Arial, Helvetica, sans-serif !important;
-
 }
 
 .ui.header {
