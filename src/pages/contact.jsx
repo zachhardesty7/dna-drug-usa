@@ -81,7 +81,9 @@ const ContactPage = ({ data: { page } }) => {
                 <S.Statistic size="mini">
                   <S.StatisticLabel forwardedAs="h3">email</S.StatisticLabel>
                   <S.StatisticValue>
-                    <Link link={`mailto:${page.email}`}>{page.email}</Link>
+                    <Link wrap link={`mailto:${page.email}`}>
+                      {page.email}
+                    </Link>
                   </S.StatisticValue>
                 </S.Statistic>
               </div>
@@ -98,7 +100,7 @@ const ContactPage = ({ data: { page } }) => {
                       .flatMap((place) => place.length)
                   ) *
                     2.55 +
-                  80
+                  90
                 }
                 columnGutter={25}
                 items={page.locations}
@@ -117,6 +119,9 @@ const ContactPage = ({ data: { page } }) => {
                       <li
                         key={place}
                         css={`
+                          ::marker {
+                            white-space: nowrap;
+                          }
                           font-size: 0.9em;
                           line-height: 1.3em;
                           ${margin("bottom")("0.5em")};

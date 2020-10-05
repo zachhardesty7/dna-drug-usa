@@ -29,7 +29,7 @@ export const SharedFooter = () => (
       developerLink="https://zachhardesty.com"
     />
     <Flexbox>
-      <S.Link as={Link} light to="/contact">
+      <S.Link as={Link} $light to="/contact">
         Contact Us!
       </S.Link>
       <IconLink.Group light justify="end">

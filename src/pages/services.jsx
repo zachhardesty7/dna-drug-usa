@@ -74,7 +74,7 @@ const ServicesPage = ({ data: { page } }) => {
           <title>{page.title}</title>
         </Helmet>
         <>
-          <Title as="h1">{page.title}</Title>
+          <Title>{page.title}</Title>
           <Grid stackable doubling reversed="mobile">
             <Grid.Column width="10">
               <Accordion styled fluid>
@@ -109,7 +109,9 @@ const ServicesPage = ({ data: { page } }) => {
                         <p>{service.description?.description}</p>
                         <List bulleted>
                           {service.costs?.map(({ cost, type }) => (
-                            <List.Item>
+                            <List.Item
+                              key={`${type} - ${cost.toLocaleString()}`}
+                            >
                               {type} - <b>${cost.toLocaleString()}</b>
                             </List.Item>
                           ))}
