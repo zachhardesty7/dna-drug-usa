@@ -70,6 +70,20 @@ const LandingPage = ({ data: { page } }) => (
           ))}
         </Blurbs>
       </PageSegment>
+      {page?.guaranteeContent?.guaranteeContent && (
+        <>
+          <Divider />
+          <PageSegment text>
+            <Blurbs>
+              <Blurbs.Item
+                as="h4"
+                icon={<Icon name="shield" size="huge" />}
+                header={page.guaranteeContent.guaranteeContent}
+              />
+            </Blurbs>
+          </PageSegment>
+        </>
+      )}
     </main>
     <SharedFooter />
   </>
@@ -105,6 +119,9 @@ export const query = graphql`
           content
         }
         title
+      }
+      guaranteeContent {
+        guaranteeContent
       }
     }
   }
