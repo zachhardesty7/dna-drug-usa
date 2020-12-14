@@ -22,6 +22,10 @@ if (!contentfulConfig.spaceId || !contentfulConfig.accessToken) {
 }
 
 module.exports = {
+  flags: {
+    FAST_DEV: true,
+    FAST_REFRESH: true,
+  },
   siteMetadata: {
     siteUrl: `https://dnadrugusa.com`,
     title: "DNA & Drug USA",
